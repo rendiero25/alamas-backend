@@ -1,0 +1,74 @@
+import React from 'react';
+import ServiceBg1 from '../assets/index/serviceweofferbg1.png';
+import ServiceBg2 from '../assets/index/serviceweofferbg2.png';
+import ServiceBg3 from '../assets/index/serviceweofferbg3.png';
+import MenIcon from '../assets/index/menwith3stars.png';
+import TimeIcon from '../assets/index/timecircle.png';
+
+const ServicesSection = () => {
+    const services = [
+        {
+            title: 'Expert Consultation',
+            desc: 'Consult your problem with us, and we will provide the right solution. Right function, right price.',
+            bg: ServiceBg1
+        },
+        {
+            title: 'Strategic Sourcing',
+            desc: 'If you have problem finding certain chemicals, we can help you to source it and deliver to you with ease.',
+            bg: ServiceBg2
+        },
+        {
+            title: 'Efficient Supply Chain',
+            desc: 'We can distribute our products swiftly to any location you need, ensuring your business runs without delays.',
+            bg: ServiceBg3
+        },
+    ];
+
+    return (
+        <section className="font-primary">
+            <div className="container mx-auto">
+                <div className="flex flex-col lg:flex-row gap-2 items-start justify-between mb-16">
+                    <div className="flex flex-col justify-between items-start gap-10">
+                        <h2 className="text-5xl md:text-[50px] font-extrabold uppercase text-black leading-none">
+                            Services <br />
+                            <span className="font-light text-[100px] text-primary uppercase" >We <br /> Offer</span>
+                        </h2>
+
+                        <p className="text-black text-[25px] leading-relaxed max-w-sm">
+                            At Alamas, We Deliver Tailored 
+                            solutions from consulting to 
+                            sourcing and supply chain, 
+                            ensuring quality and reliability 
+                            every step of the way.
+                        </p>
+                    </div>
+
+                    <div className="flex flex-col lg:flex-row gap-2 items-start justify-between gap-5">
+                        {services.map((service, index) => (
+                            <div 
+                                key={index} 
+                                className="relative h-[650px] w-[350px] rounded-2xl overflow-hidden group"
+                            >
+                                <img 
+                                    src={service.bg} 
+                                    alt={service.title} 
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                                
+                                <div className="absolute bottom-0 p-8 w-full flex flex-col justify-between items-start">
+                                    <h3 className="text-white text-[25px] font-bold mb-3 max-w-[11rem]">{service.title}</h3>
+                                    <p className="text-white text-[18px] font-light leading-relaxed">
+                                        {service.desc}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default ServicesSection;

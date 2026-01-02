@@ -1,0 +1,127 @@
+[
+  {
+    "name": "Food Ingredients",
+    "categories": [
+      {
+        "name": "Acids",
+        "products": [
+          "Malic Acid",
+          "Phosphoric Acid 85%",
+          "Glycolic Acid (AHA)",
+          "Citric Acid Monohydrate",
+          "Citric Acid Anhydrous"
+        ]
+      },
+      {
+        "name": "Polyols and Glycols",
+        "products": [
+          "Glycerine",
+          "Sorbitol"
+        ]
+      },
+      {
+        "name": "Surfactants and Emulsifiers",
+        "products": [
+          "Soya Lecithin"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Paint and Coatings",
+    "categories": [
+      {
+        "name": "Acids",
+        "products": [
+          "Nitric Acid"
+        ]
+      },
+      {
+        "name": "Solvents",
+        "products": [
+          "Normal Hexane (n-Hexane)",
+          "Methylene Chloride (MC)",
+          "Special Boiling Point (SBP)",
+          "Methyl Ethyl Ketone (MEK)",
+          "Isopropyl Alcohol (IPA)",
+          "Methanol"
+        ]
+      },
+      {
+        "name": "Industrial Chemicals",
+        "products": [
+          "Caustic Soda"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Home and Personal Care",
+    "categories": [
+      {
+        "name": "Acids",
+        "products": [
+          "Glycolic Acid (AHA)"
+        ]
+      },
+      {
+        "name": "Polyols and Glycols",
+        "products": [
+          "Propylene Glycol (PG) USP Grade",
+          "Butylene Glycol",
+          "Glycerine",
+          "Sorbitol",
+          "Di Propylene Glycol - Fragrance Grade (DPG-FG)"
+        ]
+      },
+      {
+        "name": "Surfactants and Emulsifiers",
+        "products": [
+          "Cocamidopropyl Betaine (CAPB)",
+          "PEG-40 Hydrogenated Castor Oil",
+          "Polysorbate 20",
+          "Soya Lecithin",
+          "Silicone Surfactant"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Polyurethanes",
+    "categories": [
+      {
+        "name": "Polyols and Glycols",
+        "products": [
+          "Polymer Polyol (POP)",
+          "Polyether Polyol (PPG)"
+        ]
+      },
+      {
+        "name": "Catalysts",
+        "products": [
+          "Toluene Di-Isocyanate (TDI)",
+          "Tin Catalyst (Stannous Octoate)",
+          "Amine Catalyst (Amine 33% TEDA)"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Cigarettes and Vape",
+    "categories": [
+      {
+        "name": "Polyols and Glycols",
+        "products": [
+          "Glycerine",
+          "Sorbitol"
+        ]
+      },
+      {
+        "name": "Specialty Chemicals",
+        "products": [
+          "Anethole"
+        ]
+      }
+    ]
+  }
+]

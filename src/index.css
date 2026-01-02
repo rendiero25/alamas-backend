@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Filson Pro';
+  src: url('./assets/font/FilsonProThin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Filson Pro';
+  src: url('./assets/font/FilsonProThinItalic.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Filson Pro';
+  src: url('./assets/font/FilsonProLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Filson Pro';
+  src: url('./assets/font/FilsonProLightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Filson Pro';
+  src: url('./assets/font/FilsonProRegular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Filson Pro';
+  src: url('./assets/font/FilsonProRegularItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Filson Pro';
+  src: url('./assets/font/FilsonProMedium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Filson Pro';
+  src: url('./assets/font/FilsonProMediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Filson Pro';
+  src: url('./assets/font/FilsonProBold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Filson Pro';
+  src: url('./assets/font/FilsonProBoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Filson Pro';
+  src: url('./assets/font/FilsonProHeavy.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Filson Pro';
+  src: url('./assets/font/FilsonProHeavyItalic.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Filson Pro';
+  src: url('./assets/font/FilsonProBlack.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Filson Pro';
+  src: url('./assets/font/FilsonProBlackItalic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@theme {
+    --color-primary: #040F99;
+    --color-black: #1e1e1e;
+    --font-primary: 'Filson Pro', sans-serif;
+}
+
+body {
+  font-family: 'Filson Pro', sans-serif;
+}
