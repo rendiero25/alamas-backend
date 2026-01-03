@@ -4,12 +4,12 @@ import RunningBg from "../assets/index/blackandbluelinebg.png";
 
 const TickerSection = () => {
     const items = [
-        'BAKING CARE',
-        'PAINT & COATING',
-        'SOAP & DETERGENT',
+        'CIGARETTE & VAPE',
+        'PAINT & COATINGS',
+        'CHEMICAL INDUSTRY',
         'POLYURETHANES',
         'HOME & PERSONAL CARE',
-        'FOOD & BEVERAGE',
+        'FOOD INGREDIENTS',
     ];
 
     const tickerItems = [...items, ...items]; // Duplicate for infinite scroll

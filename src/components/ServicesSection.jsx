@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import ServiceBg1 from '../assets/index/serviceweofferbg1.png';
 import ServiceBg2 from '../assets/index/serviceweofferbg2.png';
 import ServiceBg3 from '../assets/index/serviceweofferbg3.png';
@@ -34,20 +35,42 @@ const ServicesSection = () => {
                             <span className="font-light text-[100px] text-primary uppercase" >We <br /> Offer</span>
                         </h2>
 
-                        <p className="text-black text-[25px] leading-relaxed max-w-sm">
+                        <motion.p 
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className="text-black text-[25px] leading-relaxed max-w-sm"
+                        >
                             At Alamas, We Deliver Tailored 
                             solutions from consulting to 
                             sourcing and supply chain, 
                             ensuring quality and reliability 
                             every step of the way.
-                        </p>
+                        </motion.p>
                     </div>
 
-                    <div className="flex flex-col lg:flex-row gap-2 items-start justify-between gap-5">
+                    <motion.div 
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={{
+                            hidden: { opacity: 0 },
+                            visible: {
+                                opacity: 1,
+                                transition: { staggerChildren: 0.2 }
+                            }
+                        }}
+                        className="flex flex-col lg:flex-row items-start justify-between gap-5"
+                    >
                         {services.map((service, index) => (
-                            <div 
+                            <motion.div 
                                 key={index} 
-                                className="relative h-[650px] w-[350px] rounded-2xl overflow-hidden group"
+                                variants={{
+                                    hidden: { opacity: 0, y: 30 },
+                                    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+                                }}
+                                className="relative h-[650px] w-[350px] rounded-2xl overflow-hidden group shadow-lg"
                             >
                                 <img 
                                     src={service.bg} 
@@ -62,9 +85,9 @@ const ServicesSection = () => {
                                         {service.desc}
                                     </p>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

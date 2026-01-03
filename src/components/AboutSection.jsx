@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import TimeCircleIcon from "../assets/index/timecircle.png";
 import CityBgIcon from "../assets/index/citybackground.png";
 import Men3StartsIcon from "../assets/index/menwith3stars.png";
@@ -12,8 +13,8 @@ const AboutSection = () => {
     ];
 
     return (
-        <section className="px-8 md:px-24 bg-white font-primary">
-            <div className="container mx-auto">
+        <section id='aboutusection' className="container mx-auto bg-white font-primary">
+            <div className="px-10 2xl:px-2 2xl:px-2">
                 <div className="flex flex-col justify-between items-start gap-12">
                     <div className="w-full">
                         <span className="text-black text-[25px] font-normal">
@@ -25,14 +26,25 @@ const AboutSection = () => {
                         <h2 className="text-2xl md:text-[50px] font-normal text-black leading-snug">
                             Founded in 2023 
                             <span className="inline-block align-middle mx-2">
-                                <img src={TimeCircleIcon} alt="timecircleicon" className="w-12" />
+                                <motion.img 
+                                    animate={{ rotate: 360 }}
+                                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                                    src={TimeCircleIcon} alt="timecircleicon" className="w-12" />
                             </span>, 
 
-                            <span className="text-primary">PT Alamas Niaga Gemilang</span> which headquartered in North Jakarta <span className="inline-block align-middle mx-1">
+                            <span className="text-primary"> PT Alamas Niaga Gemilang</span> which headquartered in North Jakarta <motion.span 
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                                className="inline-block align-middle mx-1"
+                            >
                                 <img src={CityBgIcon} alt="citybackgroundicon" className="w-20" />
-                            </span>, began as a <span className="text-primary decoration-2 underline-offset-4">specialized chemical</span> <span className="inline-block align-middle mx-1">
+                            </motion.span>, began as a <span className="text-primary decoration-2 underline-offset-4">specialized chemical</span> <motion.span 
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                                className="inline-block align-middle mx-1"
+                            >
                                 <img src={Men3StartsIcon} alt="menwith3starsicon" className="w-12" />
-                            </span> solutions provider for the <span className="text-[#040F99] font-normal">polyurethane foam</span> manufacturing industry.
+                            </motion.span> solutions provider for the <span className="text-[#040F99] font-normal">polyurethane foam</span> manufacturing industry.
                         </h2>
 
                         <div className="flex flex-col md:flex-row justify-start items-center gap-16 mt-16">

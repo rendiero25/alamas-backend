@@ -2,8 +2,11 @@ import React from 'react';
 import Industry1 from '../assets/index/industries1.png';
 import Industry2 from '../assets/index/industries2.png';
 import Industry3 from '../assets/index/industries3.png';
+import { useNavigate } from 'react-router-dom';
 
 const IndustrySections = () => {
+    const navigate = useNavigate();
+
     const industries = [
         {
             category: 'Polyurethanes',
@@ -76,7 +79,7 @@ const IndustrySections = () => {
                 </div>
 
                 <div className="flex justify-center">
-                    <button className="border border-black hover:scale-110 hover:text-primary text-black text-[20px] font-medium py-4 px-10 rounded-full transition-all uppercase cursor-pointer">
+                    <button onClick={() => navigate('/industry')} className="border border-black hover:scale-110 hover:text-primary text-black text-[20px] font-medium py-4 px-10 rounded-full transition-all uppercase cursor-pointer">
                         More Industries
                     </button>
                 </div>

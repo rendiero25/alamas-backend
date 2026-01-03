@@ -41,7 +41,20 @@ const AboutUs = () => {
         visible: { 
             opacity: 1, 
             y: 0,
-            transition: { duration: 0.8, ease: "easeOut" }
+            transition: { 
+                duration: 0.8, 
+                ease: "easeOut",
+                staggerChildren: 0.2
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { 
+            opacity: 1, 
+            y: 0,
+            transition: { duration: 0.5 }
         }
     };
 
@@ -86,17 +99,20 @@ const AboutUs = () => {
                     Shaping the future through <span className="text-primary font-bold">innovation and expertise</span>
                 </h2>
 
-                {/* Stats Grid */}
-                <div className="flex flex-col md:flex-row justify-center items-start gap-16 mt-16">
+                <div className="flex flex-col md:flex-row justify-center items-start gap-16 mt-16 w-full">
                     {stats.map((stat, index) => (
-                        <div key={index} className="flex flex-col">
+                        <motion.div 
+                            key={index} 
+                            variants={itemVariants}
+                            className="flex flex-col flex-1"
+                        >
                             <span className="text-4xl md:text-[100px] font-medium text-black mb-2">
                                 {stat.value}
                             </span>
                             <span className="text-black text-[30px] font-medium w-full">
                                 {stat.label}
                             </span>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 
@@ -172,10 +188,14 @@ const AboutUs = () => {
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 w-full">
                     {values.map((val, index) => (
-                        <div key={index} className="flex flex-col items-center group">
+                        <motion.div 
+                            key={index} 
+                            variants={itemVariants}
+                            className="flex flex-col items-center group"
+                        >
                             <motion.div 
-                                whileHover={{ y: -10 }}
-                                className="w-24 h-24 mb-8 flex items-center justify-center p-4"
+                                whileHover={{ y: -10, scale: 1.05 }}
+                                className="w-24 h-24 mb-8 flex items-center justify-center p-4 cursor-pointer"
                             >
                                 <img src={val.icon} alt={val.title} className="max-w-full max-h-full" />
                             </motion.div>
@@ -183,7 +203,7 @@ const AboutUs = () => {
                             <p className="text-[20px] text-black font-normal leading-relaxed max-w-md">
                                 {val.desc}
                             </p>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </motion.section>

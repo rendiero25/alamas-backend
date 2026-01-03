@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import Logo from '../assets/header/logoalamas.png';
 import LogoWaHeader from '../assets/header/logowaheader.png';
@@ -7,6 +7,10 @@ import QuoteModal from './QuoteModal';
 
 
 const Header = () => {   
+
+    const location = useLocation();
+    const isContactPage = location.pathname === '/contact';
+
     const [isModalOpen, setIsModalOpen] = useState(false);
     
     const navigation = [
@@ -18,7 +22,7 @@ const Header = () => {
         ]
 
     return (
-        <header className="w-full bg-[#F0F0F0] font-primary">
+        <header className={isContactPage ? 'w-full bg-white font-primary' : 'w-full bg-[#F0F0F0] font-primary'}>
             <div className="container mx-auto h-24 flex items-center flex flex-row justify-between">
                 {/* Logo Section */}
                 <div className="flex items-center gap-2">
@@ -51,9 +55,9 @@ const Header = () => {
                     <div className="flex items-center gap-3 hover:scale-110">
                         <img src={LogoWaHeader} alt="logo wa header" className='size-10'/>
                         <div className="flex flex-col">
-                            <span className="text-[10px] sm:text-xs font-regular text-black tracking-wider">CONTACT US NOW!</span>
+                            <span className="text-[10px] sm:text-xs font-bold text-gray-500 tracking-widest px-1">CONTACT US NOW!</span>
                             <a href="https://wa.me/6281118895089" target="_blank" rel="noopener noreferrer">
-                                <span className="text-sm font-bold text-gray-900 leading-tight whitespace-nowrap">+62 811-1889-5089</span>
+                                <span className="text-[16px] font-bold text-black leading-tight whitespace-nowrap">+62 811-1889-5089</span>
                             </a>
                         </div>
                     </div>

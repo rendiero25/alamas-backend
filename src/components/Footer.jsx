@@ -13,7 +13,7 @@ const Footer = () => {
             <div className="container mx-auto">
                 <div className="flex flex-col md:flex-row justify-between gap-12 mb-20">
                     <div className="w-1/2 flex flex-col gap-6 justify-between items-start">
-                        <img src={WhiteLogo} alt="Alamas" className="w-70 object-contain" />
+                        <a href="/"><img src={WhiteLogo} alt="Alamas" className="w-70 object-contain" /></a>
                         <p className="text-white text-[25px] font-medium leading-relaxed">
                             PT Alamas Niaga Gemilang is a chemical raw material distributor, proudly representing principals from around the globe, and are home to hundreds of chemical for different applications.
                         </p>
@@ -58,7 +58,7 @@ const Footer = () => {
                             <li><Link to="/about-us" className="hover:text-primary transition-colors">ABOUT US</Link></li>
                             <li><Link to="/products" className="hover:text-primary transition-colors">PRODUCTS</Link></li>
                             <li><Link to="/industry" className="hover:text-primary transition-colors">INDUSTRY</Link></li>
-                            <li><Link to="/contact" className="hover:text-primary transition-colors">CONTACT</Link></li>
+                            <li><Link to="/contact-us" className="hover:text-primary transition-colors">CONTACT</Link></li>
                         </ul>
                     </div>
                 </div>

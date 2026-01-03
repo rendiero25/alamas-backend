@@ -1,7 +1,10 @@
 import React from 'react';
 import industriesData from '../data/products.json';
+import { useNavigate } from 'react-router-dom';
 
 const ChemicalSolutionsSection = () => {
+    const navigate = useNavigate();
+    
     // Specific products requested by the user
     const targetChemicalNames = [
         "Malic Acid", 
@@ -74,7 +77,7 @@ const ChemicalSolutionsSection = () => {
                 </div>
 
                 <div className="flex justify-center w-full mt-12">
-                    <button className="border border-black hover:scale-110 hover:text-primary text-black text-[20px] font-medium py-4 px-10 rounded-full transition-all uppercase cursor-pointer">
+                    <button onClick={() => navigate('/products')} className="border border-black hover:scale-110 hover:text-primary text-black text-[20px] font-medium py-4 px-10 rounded-full transition-all uppercase cursor-pointer">
                         More Products
                     </button>
                 </div>

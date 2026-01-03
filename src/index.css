@@ -94,7 +94,10 @@
 @theme {
     --color-primary: #040F99;
     --color-black: #1e1e1e;
+
     --font-primary: 'Filson Pro', sans-serif;
+    
+    
 }
 
 body {

@@ -29,8 +29,8 @@ const Hero = () => {
                 {/* Dark Overlay for better text readability */}
                 <div className="absolute inset-0 bg-black/40"></div>
 
-                <div className="relative z-10 px-8 md:px-24 w-full">
-                    <div className="max-w-5xl">
+                <div className="px-10 3xl:px-0 relative z-10 w-full">
+                    <div className="max-w-5xl container mx-auto">
                         <p className="text-white italic text-lg md:text-[30px] font-medium mb-2 tracking-wider">
                             Alamas Niaga Gemilang
                         </p>
@@ -43,9 +43,9 @@ const Hero = () => {
                             ultimately driving long-term success and robust business growth.
                         </p>
                         
-                        <button className="bg-gradient-to-r from-primary to-[#010533] hover:scale-110 text-white text-xs md:text-[20px] font-medium py-4 px-10 rounded-full tracking-widest transition-all cursor-pointer shadow-lg">
+                        <a href="#aboutusection" className="bg-gradient-to-r from-primary to-[#010533] hover:scale-110 text-white text-xs md:text-[20px] font-medium py-4 px-10 rounded-full tracking-widest transition-all cursor-pointer shadow-lg">
                             DISCOVER MORE
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
