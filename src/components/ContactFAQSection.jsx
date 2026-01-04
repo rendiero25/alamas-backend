@@ -43,7 +43,7 @@ const ContactFAQSection = () => {
                         </h2>
                         
                         <form className="space-y-6">
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid 2xl:grid-cols-2 gap-4">
                                 <input 
                                     type="text" 
                                     placeholder="Name" 
@@ -83,9 +83,9 @@ const ContactFAQSection = () => {
                 {/* Right: FAQ */}
                 <div className="lg:w-1/2">
                     <div className='flex flex-col justify-between items-center h-full'>
-                        <div className='bg-white w-full h-25'></div>
+                        <div className='hidden 2xl:flex bg-white w-full h-25'></div>
                         
-                        <div className="w-full h-full bg-[#F0F0F0] p-24">
+                        <div className="w-full h-full bg-[#F0F0F0] p-10 2xl:p-24">
                             <h2 className="text-[3xl] md:text-[50px] font-normal text-black mb-12">
                                 Frequently Asked <span className="text-primary font-bold">Questions</span>
                             </h2>

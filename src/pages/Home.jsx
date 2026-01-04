@@ -8,7 +8,7 @@ import ContactFAQSection from '../components/ContactFAQSection';
 
 const Home = () => {
     return (
-        <div className="overflow-hidden flex flex-col gap-[125px]">
+        <div className="overflow-hidden flex flex-col gap-[50px] 2xl:gap-[125px]">
             <Hero />
             <AboutSection />
             <TickerSection />

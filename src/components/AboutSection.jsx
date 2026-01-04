@@ -14,7 +14,7 @@ const AboutSection = () => {
 
     return (
         <section id='aboutusection' className="container mx-auto bg-white font-primary">
-            <div className="px-10 2xl:px-2 2xl:px-2">
+            <div className="px-10 2xl:px-2">
                 <div className="flex flex-col justify-between items-start gap-12">
                     <div className="w-full">
                         <span className="text-black text-[25px] font-normal">
@@ -26,33 +26,27 @@ const AboutSection = () => {
                         <h2 className="text-2xl md:text-[50px] font-normal text-black leading-snug">
                             Founded in 2023 
                             <span className="inline-block align-middle mx-2">
-                                <motion.img 
-                                    animate={{ rotate: 360 }}
-                                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                                    src={TimeCircleIcon} alt="timecircleicon" className="w-12" />
+                                <img src={TimeCircleIcon} alt="timecircleicon" className="w-7 md:w-12" />
                             </span>, 
 
-                            <span className="text-primary"> PT Alamas Niaga Gemilang</span> which headquartered in North Jakarta <motion.span 
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                            <span className="text-primary"> PT Alamas Niaga Gemilang</span> which headquartered in North Jakarta <span 
                                 className="inline-block align-middle mx-1"
                             >
-                                <img src={CityBgIcon} alt="citybackgroundicon" className="w-20" />
-                            </motion.span>, began as a <span className="text-primary decoration-2 underline-offset-4">specialized chemical</span> <motion.span 
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                                <img src={CityBgIcon} alt="citybackgroundicon" className="w-12 md:w-22" />
+                            </span>, began as a <span className="text-primary decoration-2 underline-offset-4">specialized chemical</span> <span 
                                 className="inline-block align-middle mx-1"
                             >
-                                <img src={Men3StartsIcon} alt="menwith3starsicon" className="w-12" />
-                            </motion.span> solutions provider for the <span className="text-[#040F99] font-normal">polyurethane foam</span> manufacturing industry.
+                                <img src={Men3StartsIcon} alt="menwith3starsicon" className="w-7 md:w-12" />
+                            </span> solutions provider for the <span className="text-[#040F99] font-normal">polyurethane foam</span> manufacturing industry.
                         </h2>
 
-                        <div className="flex flex-col md:flex-row justify-start items-center gap-16 mt-16">
+                        <div className="flex flex-col xl:flex-row justify-start items-start gap-16 mt-16">
                             {stats.map((stat, index) => (
                                 <div key={index} className="flex flex-col">
-                                    <span className="text-4xl md:text-[100px] font-medium text-black mb-2">
+                                    <span className="text-[100px] font-medium text-black mb-2">
                                         {stat.value}
                                     </span>
+
                                     <span className="text-black text-[30px] font-medium w-full">
                                         {stat.label}
                                     </span>

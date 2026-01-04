@@ -76,7 +76,7 @@ const ChemicalSolutionsSection = () => {
                     ))}
                 </div>
 
-                <div className="flex justify-center w-full mt-12">
+                <div className="flex justify-center w-full mt-4 2xl:mt-12">
                     <button onClick={() => navigate('/products')} className="border border-black hover:scale-110 hover:text-primary text-black text-[20px] font-medium py-4 px-10 rounded-full transition-all uppercase cursor-pointer">
                         More Products
                     </button>

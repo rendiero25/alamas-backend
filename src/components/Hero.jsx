@@ -29,8 +29,8 @@ const Hero = () => {
                 {/* Dark Overlay for better text readability */}
                 <div className="absolute inset-0 bg-black/40"></div>
 
-                <div className="px-10 3xl:px-0 relative z-10 w-full">
-                    <div className="max-w-5xl container mx-auto">
+                <div className="container mx-auto relative z-10 w-full">
+                    <div className="max-w-5xl px-10 xl:px-15 2xl:px-0">
                         <p className="text-white italic text-lg md:text-[30px] font-medium mb-2 tracking-wider">
                             Alamas Niaga Gemilang
                         </p>

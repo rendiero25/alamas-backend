@@ -49,7 +49,7 @@ const IndustrySections = () => {
                     {industries.map((item, index) => (
                         <div 
                             key={index} 
-                            className="relative h-[350px] md:h-[470px] rounded-2xl overflow-hidden group"
+                            className="relative h-[400px] md:h-[600px] lg:h-[470px] rounded-2xl overflow-hidden group"
                         >
                             <img 
                                 src={item.bg} 
@@ -58,7 +58,7 @@ const IndustrySections = () => {
                             />
                             
                             <div className="absolute inset-0 flex items-center p-6 md:p-12">
-                                <div className={`${item.cardBg} p-8 md:p-12 rounded-2xl max-w-3xl relative`}>
+                                <div className={`${item.cardBg} p-8 2xl:p-12 rounded-2xl max-w-3xl relative`}>
                                     <span className="text-white text-[25px] font-medium italic mb-2 block">
                                         {item.category}
                                     </span>
@@ -69,7 +69,7 @@ const IndustrySections = () => {
                                         {item.desc}
                                     </p>
                                     
-                                    <button className="bg-gradient-to-r from-primary to-[#010533] hover:scale-110 text-white text-[20px] font-medium py-3 px-8 rounded-full transition-all cursor-pointer">
+                                    <button className="mt-10 2xl:mt-0 bg-gradient-to-r from-primary to-[#010533] hover:scale-110 text-white text-[20px] font-medium py-3 px-8 rounded-full transition-all cursor-pointer">
                                         LEARN MORE
                                     </button>
                                 </div>

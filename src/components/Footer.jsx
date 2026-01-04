@@ -10,16 +10,16 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <footer className="bg-black text-white pt-30 pb-10 font-primary" style={{ backgroundImage: `url(${BgFooter})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className="container mx-auto">
+            <div className="container mx-auto px-10 2xl:px-2">
                 <div className="flex flex-col md:flex-row justify-between gap-12 mb-20">
-                    <div className="w-1/2 flex flex-col gap-6 justify-between items-start">
+                    <div className="w-full 2xl:w-1/2 flex flex-col gap-6 justify-between items-start">
                         <a href="/"><img src={WhiteLogo} alt="Alamas" className="w-70 object-contain" /></a>
                         <p className="text-white text-[25px] font-medium leading-relaxed">
                             PT Alamas Niaga Gemilang is a chemical raw material distributor, proudly representing principals from around the globe, and are home to hundreds of chemical for different applications.
                         </p>
                     </div>
 
-                    <div className="w-1/2 flex flex-col justify-between items-start">
+                    <div className="w-full 2xl:w-1/2 flex flex-col justify-between items-start gap-4">
                         <div className="flex flex-col gap-2">
                             <h4 className="text-[20px] font-bold uppercase text-white">Office</h4>
                             <p className="text-[20px] font-light text-white leading-relaxed">
@@ -36,7 +36,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className='w-full flex flex-col md:flex-row justify-between items-center gap-2'>
+                <div className='w-full flex flex-col md:flex-row justify-between items-center gap-20 2xl:gap-2'>
                     <div className="flex flex-row flex-wrap gap-8">
                         <div className="flex items-center gap-3">
                             <img src={PhoneIcon} alt="phone" className="w-5" />
