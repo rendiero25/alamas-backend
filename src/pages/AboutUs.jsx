@@ -59,7 +59,7 @@ const AboutUs = () => {
     };
 
     return (
-        <div className="flex flex-col gap-[125px] font-primary overflow-hidden">
+        <div className="flex flex-col gap-[50px] 2xl:gap-[125px] font-primary overflow-hidden">
             {/* Hero Section */}
             <div className="flex w-full h-[450px]">
                 {/* Sidebar */}
@@ -92,21 +92,21 @@ const AboutUs = () => {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
                 variants={containerVariants}
-                className="container mx-auto px-8 md:px-24 flex flex-col items-center text-center gap-12"
+                className="container mx-auto px-10 2xl:px-2 flex flex-col justify-center items-center text-center gap-12"
             >
                 <span className="text-black text-[25px] font-normal">• Our Story</span>
-                <h2 className="text-3xl md:text-[50px] font-bold text-black leading-tight">
+                <h2 className="text-4xl md:text-[50px] font-bold text-black leading-tight">
                     Shaping the future through <span className="text-primary font-bold">innovation and expertise</span>
                 </h2>
 
-                <div className="flex flex-col md:flex-row justify-center items-start gap-16 mt-16 w-full">
+                <div className="flex flex-row flex-wrap justify-center items-center md:items-start gap-16 2xl:mt-16 w-full">
                     {stats.map((stat, index) => (
                         <motion.div 
                             key={index} 
                             variants={itemVariants}
                             className="flex flex-col flex-1"
                         >
-                            <span className="text-4xl md:text-[100px] font-medium text-black mb-2">
+                            <span className="text-[100px] font-medium text-black mb-2">
                                 {stat.value}
                             </span>
                             <span className="text-black text-[30px] font-medium w-full">
@@ -130,21 +130,21 @@ const AboutUs = () => {
             </motion.section>
 
             {/* Mission & Vision Section */}
-            <section className="container mx-auto w-full flex flex-col gap-8">
+            <section className="container mx-auto px-10 2xl:px-2 w-full flex flex-col gap-8">
                 {/* Mission Card */}
                 <motion.div 
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="relative h-[300px] md:h-[450px] rounded-2xl overflow-hidden group shadow-xl"
+                    className="relative h-[450px] sm:h-[290px] md:h-[400px] lg:h-[350px] 2xl:h-[470px] rounded-2xl overflow-hidden group shadow-xl"
                 >
-                    <img 
-                        src={MissionBg} 
-                        alt="Mission" 
+                    <img
+                        src={MissionBg}
+                        alt="Mission"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 p-8 md:p-25 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-30">
+                    <div className="absolute inset-0 p-8 md:p-10 xl:p-25 flex flex-col xl:flex-row items-start md:items-center justify-between gap-4 xl:gap-30">
                         <h3 className="text-white text-[40px] md:text-[45px] font-bold">Mission</h3>
                         <p className="text-white text-[18px] md:text-[25px] font-normal leading-relaxed">
                             To empower Indonesian industries with access to the world's finest raw materials and 
@@ -160,14 +160,14 @@ const AboutUs = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="relative h-[300px] md:h-[450px] rounded-2xl overflow-hidden group shadow-xl"
+                    className="relative h-[450px] sm:h-[300px] md:h-[400px] lg:h-[350px] 2xl:h-[470px] rounded-2xl overflow-hidden group shadow-xl"
                 >
                     <img 
                         src={VisionBg} 
                         alt="Vision" 
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 p-8 md:p-25 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-30">
+                    <div className="absolute inset-0 p-8 md:p-10 xl:p-25 flex flex-col xl:flex-row items-start md:items-center justify-between gap-4 xl:gap-30">
                         <h3 className="text-white text-[40px] md:text-[50px] font-bold">Vision</h3>
                         <p className="text-white text-[18px] md:text-[25px] font-normal leading-relaxed">
                             To establish Indonesia at the pinnacle of global production, renowned not only for the quantity but also for the unmatched quality and reliability of its products, making it the go-to destination for world-class manufacturing solutions.
@@ -186,7 +186,7 @@ const AboutUs = () => {
             >
                 <span className="text-black text-[25px] font-normal mb-16">• Our Values</span>
                 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 w-full">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 w-full">
                     {values.map((val, index) => (
                         <motion.div 
                             key={index} 

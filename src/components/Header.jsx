@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -12,6 +12,8 @@ const Header = () => {
 
     const location = useLocation();
     const isContactPage = location.pathname === '/contact';
+
+    const navigate = useNavigate();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,7 +32,9 @@ const Header = () => {
                 {/* Logo Section */}
                 <div className="flex items-center gap-2">
                     {/* Placeholder for Logo Icon - stylized 'A' */}
-                    <img src={Logo} alt="logoalamas" />
+                    <button onClick={() => navigate('/')} className='cursor-pointer'>
+                        <img src={Logo} alt="logoalamas" className='w-95 md:w-75 xl:w-80 2xl:w-75'/>
+                    </button>
                 </div>
 
                 {/* Navigation Links - Hidden on mobile, visible on lg */}

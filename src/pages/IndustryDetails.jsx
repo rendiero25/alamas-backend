@@ -102,7 +102,13 @@ const IndustryDetails = () => {
             </div>
 
             {/* Description Section */}
-            <section className="container mx-auto flex flex-col md:flex-row justify-between items-end gap-12">
+            <motion.section 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="container mx-auto px-10 2xl:px-0 flex flex-col md:flex-row justify-between items-end gap-12"
+            >
                 <div className="md:w-1/2">
                     <h2 className="text-[50px] font-medium text-black leading-tight">
                         {info.heading}
@@ -114,9 +120,15 @@ const IndustryDetails = () => {
                         {info.desc}
                     </p>
                 </div>
-            </section>
+            </motion.section>
 
-            <div className="container mx-auto flex flex-col gap-4">
+            <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="container mx-auto px-10 2xl:px-0 flex flex-col gap-4"
+            >
                 <span className="text-black text-[25px] font-normal">
                     • Product List
                 </span>
@@ -124,10 +136,10 @@ const IndustryDetails = () => {
                 <p className="text-black text-[25px] font-normal max-w-3xl">
                     {info.productListDesc}
                 </p>
-            </div>
+            </motion.div>
 
             {/* Products Grouped by Category */}
-            <section className="container mx-auto mb-[75px]">
+            <section className="container mx-auto px-10 2xl:px-0 mb-[75px]">
                 {industryProducts?.categories.map((cat, idx) => (
                     <div key={idx} className="mb-12">
                         <div className="flex items-center gap-3 mb-8 border-b border-gray-100 pb-4">
@@ -136,7 +148,7 @@ const IndustryDetails = () => {
                             </span>
                             <h3 className="text-3xl font-normal text-black">{cat.name}</h3>
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
                             {cat.products.map((product, pIdx) => (
                                 <div key={pIdx} className="border border-black p-6 rounded-2xl flex flex-col justify-between hover:shadow-lg transition-all bg-white group hover:-translate-y-1">
                                     <div>

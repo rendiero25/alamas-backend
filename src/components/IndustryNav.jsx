@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { FaCog, FaLeaf } from 'react-icons/fa';
 
 const IndustryNav = () => {
@@ -12,7 +13,13 @@ const IndustryNav = () => {
     ];
 
     return (
-        <nav className="w-full bg-[#1A3A8A] text-white font-primary overflow-x-auto whitespace-nowrap scrollbar-hide">
+        <motion.nav 
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="w-full bg-[#1A3A8A] text-white font-primary overflow-x-auto whitespace-nowrap scrollbar-hide"
+        >
             <div className="container mx-auto flex justify-between items-center py-4 px-8 md:px-24">
                 {industries.map((industry, index) => (
                     <div 
@@ -26,7 +33,7 @@ const IndustryNav = () => {
                     </div>
                 ))}
             </div>
-        </nav>
+        </motion.nav>
     );
 };
 

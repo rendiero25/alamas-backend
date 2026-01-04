@@ -16,14 +16,26 @@ const AboutSection = () => {
         <section id='aboutusection' className="container mx-auto bg-white font-primary">
             <div className="px-10 2xl:px-2">
                 <div className="flex flex-col justify-between items-start gap-12">
-                    <div className="w-full">
+                    <motion.div 
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="w-full"
+                    >
                         <span className="text-black text-[25px] font-normal">
                             • About Us
                         </span>
-                    </div>
+                    </motion.div>
                     
-                    <div className="w-full">
-                        <h2 className="text-2xl md:text-[50px] font-normal text-black leading-snug">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="w-full"
+                    >
+                        <h2 className="text-3xl md:text-[50px] font-normal text-black leading-snug">
                             Founded in 2023 
                             <span className="inline-block align-middle mx-2">
                                 <img src={TimeCircleIcon} alt="timecircleicon" className="w-7 md:w-12" />
@@ -40,9 +52,31 @@ const AboutSection = () => {
                             </span> solutions provider for the <span className="text-[#040F99] font-normal">polyurethane foam</span> manufacturing industry.
                         </h2>
 
-                        <div className="flex flex-col xl:flex-row justify-start items-start gap-16 mt-16">
+                        <motion.div 
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={{
+                                hidden: { opacity: 0 },
+                                visible: {
+                                    opacity: 1,
+                                    transition: {
+                                        staggerChildren: 0.15,
+                                        delayChildren: 0.4
+                                    }
+                                }
+                            }}
+                            className="flex flex-row flex-wrap justify-start items-start gap-16 mt-16"
+                        >
                             {stats.map((stat, index) => (
-                                <div key={index} className="flex flex-col">
+                                <motion.div 
+                                    key={index}
+                                    variants={{
+                                        hidden: { opacity: 0, y: 30 },
+                                        visible: { opacity: 1, y: 0 }
+                                    }}
+                                    className="flex flex-col"
+                                >
                                     <span className="text-[100px] font-medium text-black mb-2">
                                         {stat.value}
                                     </span>
@@ -50,10 +84,10 @@ const AboutSection = () => {
                                     <span className="text-black text-[30px] font-medium w-full">
                                         {stat.label}
                                     </span>
-                                </div>
+                                </motion.div>
                             ))}
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </div>
         </section>

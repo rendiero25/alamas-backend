@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { motion } from 'motion/react';
 import productsData from '../data/products.json';
 import { FaFlask, FaVial, FaMicroscope, FaDna, FaAtom, FaFillDrip, FaIndustry } from 'react-icons/fa';
 import SearchIcon from "../assets/products/search-icon.png";
@@ -72,8 +73,14 @@ const ProductList = () => {
 
     return (
         <section className="font-primary mb-[75px]">
-            <div className="container mx-auto">
-                <div className="mb-12">
+            <div className="container mx-auto px-10 2xl:px-0">
+                <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="mb-12"
+                >
                     <h2 className="text-3xl md:text-[50px] font-bold text-primary">
                         Chemical Solutions <span className="text-black font-bold">For Your Business</span>
                     </h2>
@@ -81,10 +88,10 @@ const ProductList = () => {
                         The following are chemical products that we are ready to distribute throughout Indonesia and overseas. 
                         For information on products not mentioned, please feel free to contact us.
                     </p>
-                </div>
+                </motion.div>
 
                 {/* Search and Filters */}
-                <div className="flex flex-col md:flex-row gap-4 mb-12">
+                <div className="flex flex-col lg:flex-row gap-5 xl:gap-4 mb-12">
                     <div className="flex-1 relative">
                         <input 
                             type="text" 
@@ -138,10 +145,28 @@ const ProductList = () => {
                                 </h3>
                             </div>
                             
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-5 gap-4">
+                            <motion.div 
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, margin: "-50px" }}
+                                variants={{
+                                    hidden: { opacity: 0 },
+                                    visible: {
+                                        opacity: 1,
+                                        transition: {
+                                            staggerChildren: 0.05
+                                        }
+                                    }
+                                }}
+                                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
+                            >
                                 {products.map((product, idx) => (
-                                    <div 
-                                        key={idx} 
+                                    <motion.div 
+                                        key={idx}
+                                        variants={{
+                                            hidden: { opacity: 0, y: 20 },
+                                            visible: { opacity: 1, y: 0 }
+                                        }}
                                         className="border border-black p-6 rounded-2xl flex flex-col justify-between hover:shadow-lg transition-all bg-white group hover:-translate-y-1"
                                     >
                                         <div>
@@ -157,9 +182,9 @@ const ProductList = () => {
                                                 ))}
                                             </div>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 ))}
-                            </div>
+                            </motion.div>
                         </div>
                     ))}
 

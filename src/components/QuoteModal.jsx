@@ -22,7 +22,7 @@ const QuoteModal = ({ isOpen, onClose }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const { name, phone, email, subject, message } = formData;
-        const mailtoLink = `mailto:workspace.rendy@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+        const mailtoLink = `mailto:info@alamasng.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
             `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`
         )}`;
         window.location.href = mailtoLink;

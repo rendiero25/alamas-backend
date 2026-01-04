@@ -1,9 +1,33 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import FormBg from '../assets/index/formbg.png';
 import CityBg from '../assets/index/formbg.png';
 
 const ContactFAQSection = () => {
     const [openIndex, setOpenIndex] = useState(0);
+    const [formData, setFormData] = useState({
+        name: '',
+        phone: '',
+        email: '',
+        subject: '',
+        message: ''
+    });
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const { name, phone, email, subject, message } = formData;
+        const mailtoLink = `mailto:info@alamasng.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+            `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`
+        )}`;
+        window.location.href = mailtoLink;
+    };
 
     const faqs = [
         {
@@ -32,7 +56,13 @@ const ContactFAQSection = () => {
         <section className="font-primary">
             <div className="flex flex-col lg:flex-row min-h-[700px]">
                 {/* Left: Contact Form */}
-                <div className="lg:w-1/2 relative min-h-[600px] flex items-center justify-center p-8 md:p-20 overflow-hidden">
+                <motion.div 
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="lg:w-1/2 relative min-h-[600px] flex items-center justify-center p-8 md:p-20 overflow-hidden"
+                >
                     <img src={CityBg} alt="back" className="absolute inset-0 w-full h-full object-cover" />
                     
                     <div 
@@ -42,46 +72,72 @@ const ContactFAQSection = () => {
                             Let's Start a Conversation About Your Needs
                         </h2>
                         
-                        <form className="space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid 2xl:grid-cols-2 gap-4">
                                 <input 
                                     type="text" 
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
                                     placeholder="Name" 
                                     className="bg-transparent border-b border-white/30 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder:text-white"
+                                    required
                                 />
                                 <input 
                                     type="text" 
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleChange}
                                     placeholder="Phone" 
                                     className="bg-transparent border-b border-white/30 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder:text-white"
+                                    required
                                 />
                             </div>
                             <input 
                                 type="email" 
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
                                 placeholder="Email" 
                                 className="w-full bg-transparent border-b border-white/30 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder:text-white"
+                                required
                             />
                             <input 
                                 type="text" 
+                                name="subject"
+                                value={formData.subject}
+                                onChange={handleChange}
                                 placeholder="Subject" 
                                 className="w-full bg-transparent border-b border-white/30 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder:text-white"
+                                required
                             />
                             <textarea 
+                                name="message"
+                                value={formData.message}
+                                onChange={handleChange}
                                 placeholder="Message" 
                                 rows="3"
                                 className="w-full bg-transparent border-b border-white/30 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors placeholder:text-white resize-none"
+                                required
                             ></textarea>
                             
                             <div className="pt-6">
-                                <button className="w-1/2 py-4 border border-white/50 hover:bg-white hover:text-black rounded-full text-white text-[20px] font-medium tracking-widest transition-all">
+                                <button type="submit" className="cursor-pointer w-1/2 py-4 border border-white/50 hover:bg-white hover:text-black rounded-full text-white text-[20px] font-medium tracking-widest transition-all">
                                     SEND 
                                 </button>
                             </div>
                         </form>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Right: FAQ */}
-                <div className="lg:w-1/2">
+                <motion.div 
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="lg:w-1/2"
+                >
                     <div className='flex flex-col justify-between items-center h-full'>
                         <div className='hidden 2xl:flex bg-white w-full h-25'></div>
                         
@@ -114,7 +170,7 @@ const ContactFAQSection = () => {
                         </div>
                     </div>
                     
-                </div>
+                </motion.div>
             </div>
         </section>
     );

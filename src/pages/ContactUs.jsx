@@ -1,29 +1,40 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import ContactFAQSection from '../components/ContactFAQSection';
 
 const ContactUs = () => {
     return (
         <div className="font-primary">
             {/* Hero Section */}
-            <section className="container mx-auto pt-20 mb-[75px]">
-                <div className="flex flex-col lg:flex-row justify-between items-end gap-12">
+            <section className="container mx-auto px-10 2xl:px-0 pt-10 xl:pt-20 mb-[75px]">
+                <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
                     {/* Left: Title */}
-                    <div className="lg:w-1/2">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="lg:w-1/2"
+                    >
                         <h1 className="text-[60px] md:text-[100px] font-medium text-black leading-tight mb-8">
                             Let's get <br /> in touch
                         </h1>
                         <p className="text-[30px] md:text-[35px] font-medium text-black leading-tight">
                             Don't be afraid to <br /> say hello with us!
                         </p>
-                    </div>
+                    </motion.div>
 
                     {/* Right: Info Area */}
-                    <div className="lg:w-1/2 pt-10 lg:pt-20">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="lg:w-1/2 pt-10 lg:pt-20"
+                    >
                         <p className="text-[25px] font-medium text-black mb-12 max-w-lg">
                             Great! we're excited to hear from you and let's start something special together. call us for any inquery.
                         </p>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 gap-8">
                             <div className="flex flex-col gap-2">
                                 <span className="text-black/50 text-[18px]">Phone</span>
                                 <span className="text-black text-[18px] font-bold">021-3001-0522</span>
@@ -37,7 +48,7 @@ const ContactUs = () => {
                                 <span className="text-black text-[18px] font-bold">info@alamasng.com</span>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 

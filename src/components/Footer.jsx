@@ -48,17 +48,17 @@ const Footer = () => {
                         </div>
                         <div className="flex items-center gap-3">
                             <img src={MailIcon} alt="email" className="w-5" />
-                            <span className="text-[20px] font-normal text-white">sales@alamasniaga.com</span>
+                            <span className="text-[20px] font-normal text-white">info@alamasng.com</span>
                         </div>
                     </div>
 
                     <div>
                         <ul className="flex flex-row flex-wrap gap-8 text-[20px] font-medium">
-                            <li><Link to="/" className="hover:text-primary transition-colors">HOME</Link></li>
-                            <li><Link to="/about-us" className="hover:text-primary transition-colors">ABOUT US</Link></li>
-                            <li><Link to="/products" className="hover:text-primary transition-colors">PRODUCTS</Link></li>
-                            <li><Link to="/industry" className="hover:text-primary transition-colors">INDUSTRY</Link></li>
-                            <li><Link to="/contact-us" className="hover:text-primary transition-colors">CONTACT</Link></li>
+                            <li><Link to="/" className="hover:font-light transition-colors">HOME</Link></li>
+                            <li><Link to="/about-us" className="hover:font-light transition-colors">ABOUT US</Link></li>
+                            <li><Link to="/products" className="hover:font-light transition-colors">PRODUCTS</Link></li>
+                            <li><Link to="/industry" className="hover:font-light transition-colors">INDUSTRY</Link></li>
+                            <li><Link to="/contact" className="hover:font-light transition-colors">CONTACT</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -73,9 +73,8 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row justify-between items-center text-[14px] text-white/70 font-medium gap-6">
                     <p>© 2026 Alamas Niaga Gemilang. All Rights Reserved. developed by <a href="http://rendiero.site" className="text-white hover:font-bold transition-colors">rendiero</a></p>
                     <div className="flex gap-8">
-                        <a href="#" className="hover:text-white transition-colors">Instagram</a>
-                        <a href="#" className="hover:text-white transition-colors">Facebook</a>
-                        <a href="#" className="hover:text-white transition-colors">Tiktok</a>
+                        <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+                        <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
                     </div>
                 </div>
 

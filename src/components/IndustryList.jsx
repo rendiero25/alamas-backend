@@ -47,7 +47,7 @@ const IndustryList = () => {
 
     return (
         <section className="w-full flex flex-col gap-12 md:gap-24 font-primary mb-[75px]">
-            <div className="container mx-auto">
+            <div className="container mx-auto px-10 2xl:px-0">
                 <div className="mb-0">
                     <h2 className="text-3xl md:text-[50px] font-bold text-primary">
                         Chemical Solutions <span className="text-black font-bold">For Every Industry</span>
@@ -58,7 +58,7 @@ const IndustryList = () => {
                 </div>
             </div>
 
-            <div className="container mx-auto flex flex-col gap-16 md:gap-20">
+            <div className="container mx-auto px-10 2xl:px-0 flex flex-col gap-16 md:gap-20">
                 {industries.map((item, index) => (
                     <motion.div 
                         key={index}
@@ -66,7 +66,7 @@ const IndustryList = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8 }}
-                        className="relative w-full h-[500px] md:h-[600px] group rounded-2xl"
+                        className="relative w-full h-[720px] sm:h-[500px] md:h-[550px] lg:h-[500px] 2xl:h-[520px] group rounded-2xl"
                     >
                         {/* Background Image */}
                         <img 
@@ -76,8 +76,8 @@ const IndustryList = () => {
                         />
                         
                         {/* Overlay Content */}
-                        <div className="absolute inset-0 flex items-center px-6 md:px-24">
-                            <div className="bg-black/25 backdrop-blur-2xl p-8 md:p-14 rounded-2xl border border-white/10 max-w-full md:max-w-4xl text-white">
+                        <div className="absolute inset-0 flex items-center px-6 md:px-8 2xl:px-12">
+                            <div className="bg-black/25 backdrop-blur-2xl p-8 2xl:p-8 rounded-2xl border border-white/10 max-w-full md:max-w-4xl text-white">
                                 <span className="text-lg md:text-xl italic font-normal block mb-4 opacity-100">
                                     {item.title}
                                 </span>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import industriesData from '../data/products.json';
 import { useNavigate } from 'react-router-dom';
 
@@ -39,7 +40,13 @@ const ChemicalSolutionsSection = () => {
     return (
         <section className="px-8 md:px-24 bg-white font-primary">
             <div className="container mx-auto flex flex-col justify-between items-start gap-12">
-                <div className="flex flex-col justify-between items-start gap-12 w-full">
+                <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="flex flex-col justify-between items-start gap-12 w-full"
+                >
                     <span className="text-black text-[25px] font-normal">
                         • Products
                     </span>
@@ -50,18 +57,36 @@ const ChemicalSolutionsSection = () => {
                             Committed to support machine parts and equipment
                         </span>
                     </h2>
-                </div>
+                </motion.div>
 
                 {/* Featured Products Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={{
+                        hidden: { opacity: 0 },
+                        visible: {
+                            opacity: 1,
+                            transition: {
+                                staggerChildren: 0.1
+                            }
+                        }
+                    }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full"
+                >
                     {featuredProducts.map((product, index) => (
-                        <div 
-                            key={index} 
-                            className="bg-gradient-to-b from-[#D2D3CD]/25 to-transparent p-10 rounded-2xl flex flex-col justify-between hover:shadow-md transition-shadow cursor-default border border-gray-50 min-h-[160px]"
+                        <motion.div 
+                            key={index}
+                            variants={{
+                                hidden: { opacity: 0, y: 20 },
+                                visible: { opacity: 1, y: 0 }
+                            }}
+                            className="bg-white border border-black p-10 rounded-2xl flex flex-col justify-between cursor-default min-h-[160px]"
                         >
                             <div>
                                 <h3 className="font-bold text-[25px] mb-3">{product.name}</h3>
-                                <div className="flex flex-wrap gap-2">
+                                <div className="flex flex-wrap gap-4">
                                     {product.industries.map((ind, iIndex) => (
                                         <span 
                                             key={iIndex}
@@ -72,9 +97,9 @@ const ChemicalSolutionsSection = () => {
                                     ))}
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
 
                 <div className="flex justify-center w-full mt-4 2xl:mt-12">
                     <button onClick={() => navigate('/products')} className="border border-black hover:scale-110 hover:text-primary text-black text-[20px] font-medium py-4 px-10 rounded-full transition-all uppercase cursor-pointer">

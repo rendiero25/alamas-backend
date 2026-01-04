@@ -28,8 +28,8 @@ const ServicesSection = () => {
     return (
         <section className="font-primary">
             <div className="container mx-auto px-10 2xl:px-2">
-                <div className="flex flex-col 2xl:flex-row gap-2 items-center lg:items-start justify-between xl:mb-16">
-                    <div className="flex flex-col lg:flex-row 2xl:flex-col justify-between items-center lg:items-start gap-10">
+                <div className="flex flex-col 2xl:flex-row gap-2 items-center lg:items-start justify-between mb-16">
+                    <div className="flex flex-col xl:flex-row 2xl:flex-col justify-between items-center xl:items-end 2xl:items-start gap-10">
                         <h2 className="text-5xl md:text-[50px] font-extrabold uppercase text-black leading-none">
                             Services <br />
                             <span className="font-light text-[100px] text-primary uppercase" >We <br /> Offer</span>
@@ -40,7 +40,7 @@ const ServicesSection = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            className="text-black text-[25px] leading-relaxed w-full 2xl:max-w-sm text-center lg:text-left"
+                            className="text-black text-[25px] leading-relaxed w-full 2xl:max-w-sm text-center xl:text-left"
                         >
                             At Alamas, We Deliver Tailored 
                             solutions from consulting to 
@@ -61,7 +61,7 @@ const ServicesSection = () => {
                                 transition: { staggerChildren: 0.2 }
                             }
                         }}
-                        className="flex flex-row flex-wrap items-center 2xl:items-start justify-center 2xl:justify-between gap-5 mt-5 2xl:mt-0"
+                        className="flex flex-row flex-wrap items-center 2xl:items-start justify-center justify-between gap-5 mt-5 2xl:mt-0"
                     >
                         {services.map((service, index) => (
                             <motion.div 
