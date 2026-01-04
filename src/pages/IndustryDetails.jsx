@@ -110,7 +110,7 @@ const IndustryDetails = () => {
                 className="container mx-auto px-10 2xl:px-0 flex flex-col md:flex-row justify-between items-end gap-12"
             >
                 <div className="md:w-1/2">
-                    <h2 className="text-[50px] font-medium text-black leading-tight">
+                    <h2 className="text-[45px] sm:text-[50px] font-medium text-black leading-tight">
                         {info.heading}
                     </h2>
                     
