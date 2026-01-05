@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { HiMenu, HiX } from 'react-icons/hi';
+import { HiMenuAlt1, HiX } from 'react-icons/hi';
 import { motion, AnimatePresence } from 'motion/react';
 
 import Logo from '../assets/header/logoalamas.png';
@@ -84,7 +84,7 @@ const Header = () => {
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         className="text-3xl text-black hover:text-primary transition-colors focus:outline-none"
                     >
-                        {isMenuOpen ? <HiX /> : <HiMenu />}
+                        {isMenuOpen ? <HiX /> : <HiMenuAlt1 />}
                     </button>
                 </div>
             </div>

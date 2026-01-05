@@ -167,7 +167,7 @@ const ProductList = () => {
                                             hidden: { opacity: 0, y: 20 },
                                             visible: { opacity: 1, y: 0 }
                                         }}
-                                        className="border border-black p-6 rounded-2xl flex flex-col justify-between hover:shadow-lg transition-all bg-white group hover:-translate-y-1"
+                                        className="border border-black/25 p-6 rounded-2xl flex flex-col justify-between hover:shadow-lg transition-all bg-white group hover:-translate-y-1"
                                     >
                                         <div>
                                             <h4 className="font-bold text-[20px] mb-4 h-12 overflow-hidden leading-tight group-hover:text-primary">
@@ -175,11 +175,27 @@ const ProductList = () => {
                                             </h4>
 
                                             <div className="flex flex-wrap gap-2">
-                                                {product.industries.map((ind, iIdx) => (
-                                                    <span key={iIdx} className="text-[12px] font-normal bg-[#D2D3CD]/25 border border-[#999996] px-3 py-1 rounded-full text-black whitespace-nowrap">
-                                                        {ind}
-                                                    </span>
-                                                ))}
+                                                {product.industries.map((ind, iIdx) => {
+                                                    const industryColors = {
+                                                        "Food Ingredients": "#009F6F",
+                                                        "Paint and Coatings": "#026DD6",
+                                                        "Home and Personal Care": "#E107CB",
+                                                        "Polyurethane Foam": "#E14640",
+                                                        "Cigarettes and Vape": "#333333"
+                                                    };
+                                                    
+                                                    const color = industryColors[ind] || "#000000";
+                                                    
+                                                    return (
+                                                        <span 
+                                                            key={iIdx} 
+                                                            className="text-[12px] font-normal bg-[#D2D3CD]/25 border px-3 py-1 rounded-full whitespace-nowrap"
+                                                            style={{ color: color, borderColor: color }}
+                                                        >
+                                                            {ind}
+                                                        </span>
+                                                    );
+                                                })}
                                             </div>
                                         </div>
                                     </motion.div>

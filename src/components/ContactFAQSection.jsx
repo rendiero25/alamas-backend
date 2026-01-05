@@ -31,25 +31,33 @@ const ContactFAQSection = () => {
 
     const faqs = [
         {
-            q: 'How long does the SEO analysis take?',
-            a: 'Our experts will complete your SEO analysis and deliver a detailed report within 48 hours of submitting your website URL.'
+            q: 'What is your typical lead time for delivery?',
+            a: 'Because we maintain a significant ready-stock inventory in our warehouses, we can offer much faster turnaround times. For stocked items, dispatch is immediate; for specialty sourcing through our wider network, our years of logistics experience ensures the most efficient route to your facility.'
         },
         {
-            q: 'Is this service only for real estate websites?',
-            a: 'No, our service is available for all types of websites, including e-commerce, education, and healthcare.'
+            q: 'Do you offer flexible ordering options for smaller businesses?',
+            a: 'Yes. One of our core advantages is supporting businesses of all sizes through Low Minimum Order Quantities (MOQs). We understand that not every project requires a big quantity of certain items, so we provide the flexibility to order exactly what you need without the burden of excessive overhead. Some of our products MOQ are 100 grams !!'
         },
         {
-            q: 'Where do I get the report?',
-            a: 'Alamas is a team of specialists and partners dedicated to delivering quality chemicals and reliable solutions for your business'
+            q: 'Do you offer custom sourcing for materials not listed in your catalog?',
+            a: 'Absolutely. Our sourcing capability is not limited to our current inventory. If you require a specific chemical or a customized grade of raw material, our extended sourcing network allows us to locate hard-to-find chemicals and specialty raw materials that are not available through standard channels. If it’s on the market, we have the connections to find it for you.'
         },
         {
-            q: 'Do I need technical knowledge to use the report?',
-            a: 'With the experience of serving hundreds of satisfied customer, PT Alamas Niaga Gemilang strive to be your ultimate partner in success.'
+            q: 'How are your prices so competitive?',
+            a: 'We provide first-hand pricing by bridging the gap between global manufacturers and your facility. By eliminating unnecessary middlemen and leveraging our long-standing direct relationships with factories, we pass the cost savings directly to you.'
         },
         {
-            q: 'Can I request additional support after receiving the report?',
-            a: 'PT Alamas Niaga Gemilang is a chemical raw material distributor, proudly representing principals from around the globe, and are home to hundreds of chemical for different applications.'
-        }
+            q: 'Who will be managing my account and orders?',
+            a: 'Your account will be handled by personnel with 10+ years of technical experience in chemical distribution. You aren’t just getting a salesperson; you are getting a partner who understands the technical specifications, safety requirements, and supply chain nuances of raw material trading'
+        },
+        {
+            q: 'Can you provide technical documentation and COAs for your products?',
+            a: 'Transparency is central to our "original goods" guarantee. Every batch we distribute is accompanied by a Certificate of Analysis (COA) and necessary Material Safety Data Sheets (MSDS). We ensure that the technical specifications delivered to your facility perfectly match the manufacturer’s original standards.'
+        },
+        {
+            q: 'How do you handle quality disputes or discrepancies?',
+            a: 'Because we prioritize long-term partnerships, we stand firmly behind the integrity of our goods. Our years of experienced personnel follow a rigorous quality-control protocol. In the rare event of a discrepancy, we provide rapid technical support and a transparent resolution process to ensure your production remains uninterrupted.'
+        },
     ];
 
     return (

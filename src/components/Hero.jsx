@@ -94,7 +94,7 @@ const Hero = () => {
                 {/* Dark Overlay for better text readability */}
                 <div className="absolute inset-0"></div>
 
-                <div className="container mx-auto px-10 xl:px-15 2xl:px-0 relative z-10 w-full">
+                <div className="container mx-auto px-10 xl:px-15 2xl:px-10 relative z-10 w-full">
                     <div className="max-w-5xl 2xl:-ml-10">
                         <motion.p 
                             initial={{ opacity: 0, y: 30 }}
@@ -108,9 +108,9 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-white text-4xl md:text-[80px] font-extrabold leading-tight mb-8"
+                            className="text-white text-4xl md:text-[80px] font-extrabold leading-tight mb-8 uppercase"
                         >
-                            CHEMICAL DISTRIBUTOR <br /> COMPANY
+                            raw material distributor <br /> company
                         </motion.h1>
                         <motion.p 
                             initial={{ opacity: 0, y: 30 }}
@@ -118,9 +118,8 @@ const Hero = () => {
                             transition={{ duration: 0.8, delay: 0.6 }}
                             className="text-white text-base md:text-[25px] font-medium leading-relaxed mb-10 max-w-5xl"
                         >
-                            At our core, we believe that providing a trusted and seamless chemical 
-                            distribution service is the key to unlocking new possibilities for innovation, 
-                            ultimately driving long-term success and robust business growth.
+                            Access to decades of expertise and expansive supply network. We bridge the gap between global 
+                            manufacturers and your facility with first-hand pricing and a zero-compromise approach to quality.
                         </motion.p>
                         
                         <motion.a 

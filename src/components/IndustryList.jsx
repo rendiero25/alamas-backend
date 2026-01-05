@@ -9,9 +9,9 @@ import { Link } from "react-router-dom";
 const IndustryList = () => {
     const industries = [
         {
-            slug: "polyurethanes",
+            slug: "polyurethane-foam",
             bg: Industry1Bg,
-            title: "Polyurethane",
+            title: "Polyurethane Foam",
             heading: "Elevating Polyurethanes & Hygiene Standards with Premium Materials",
             desc: "We supply essential raw materials for polyurethane and hygiene applications, ensuring product safety, performance, and quality. With innovation at the core, we help our partners deliver effective and reliable solutions to the market.",
         },
