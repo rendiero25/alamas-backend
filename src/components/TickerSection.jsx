@@ -19,7 +19,7 @@ const TickerSection = () => {
             <div className="absolute top-0 left-0 w-full h-full animate-marquee flex items-center">
                 {tickerItems.map((item, index) => (
                     <div key={index} className="flex items-center mx-8">
-                        <span className="text-white font-medium text-xs md:text-[25px]">
+                        <span className="text-white font-medium text-[30px] md:text-[25px]">
                             {item}
                         </span>
                         <img src={SettingIcon} alt="icon" className="w-10 ml-15" />

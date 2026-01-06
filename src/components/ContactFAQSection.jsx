@@ -150,26 +150,26 @@ const ContactFAQSection = () => {
                         <div className='hidden 2xl:flex bg-white w-full h-25'></div>
                         
                         <div className="w-full h-full bg-[#F0F0F0] p-10 2xl:p-24">
-                            <h2 className="text-[3xl] md:text-[50px] font-normal text-black mb-12">
+                            <h2 className="text-3xl md:text-[50px] font-normal text-black mb-12">
                                 Frequently Asked <span className="text-primary font-bold">Questions</span>
                             </h2>
                             
                             <div className="space-y-4">
                                 {faqs.map((faq, index) => (
-                                    <div key={index} className="border-b border-[#9E9E9E]/50 py-6 pr-10">
+                                    <div key={index} className="border-b border-[#9E9E9E]/50 py-6 pr-0 md:pr-10">
                                         <button 
-                                            className="cursor-pointer w-full flex justify-between items-center text-left focus:outline-none"
+                                            className="cursor-pointer w-full flex flex-row justify-between items-center text-left focus:outline-none"
                                             onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
                                         >
-                                            <span className={`text-[25px] font-bold transition-colors cursor-pointer ${openIndex === index ? 'text-primary' : 'text-[#1e1e1e]'}`}>
+                                            <span className={`text-[20px] md:text-[25px] font-bold transition-colors cursor-pointer ${openIndex === index ? 'text-primary' : 'text-black'}`}>
                                                 {faq.q}
                                             </span>
-                                            <span className="text-2xl text-black">
+                                            <span className="text-2xl text-black ml-5 md:ml-0">
                                                 {openIndex === index ? '−' : '+'}
                                             </span>
                                         </button>
                                         
-                                        <div className={`mt-4 text-black text-[20px] leading-relaxed overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+                                        <div className={`mt-4 mr-5 md:mr-0 text-black text-[20px] md:text-[25px] leading-relaxed overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
                                             {faq.a}
                                         </div>
                                     </div>

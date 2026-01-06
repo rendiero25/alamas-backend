@@ -168,9 +168,11 @@ const AboutUs = () => {
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 p-8 md:p-10 xl:p-25 flex flex-col xl:flex-row items-start md:items-center justify-between gap-4 xl:gap-30">
-                        <h3 className="text-white text-[40px] md:text-[50px] font-bold">Vision</h3>
+                        <h3 className="text-white text-[40px] md:text-[45px] font-bold">Vision</h3>
                         <p className="text-white text-[18px] md:text-[25px] font-normal leading-relaxed">
-                            To establish Indonesia at the pinnacle of global production, renowned not only for the quantity but also for the unmatched quality and reliability of its products, making it the go-to destination for world-class manufacturing solutions.
+                            To establish Indonesia at the pinnacle of global production, renowned not only for 
+                            the quantity but also for the unmatched quality and reliability of its products, 
+                            making it the go-to destination for world-class manufacturing solutions.
                         </p>
                     </div>
                 </motion.div>

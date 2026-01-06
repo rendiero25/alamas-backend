@@ -30,11 +30,11 @@ const IndustryList = () => {
             desc: "We source and distribute high-quality food ingredients that ensure taste, safety, and compliance. Our expertise helps clients innovate and meet evolving consumer demands with reliable and consistent supply.",
         },
         {
-            slug: "paint-and-coatings",
+            slug: "flavor-and-fragrance",
             bg: Industry4Bg,
-            title: "Paint & Coatings",
-            heading: "Innovating Sustainable Solutions in Paint & Coatings Industry",
-            desc: "We deliver premium raw materials for the paint and coatings industry, focusing on durability, performance, and sustainability. Through reliable sourcing and supply, we help clients develop products that meet modern industry standards.",
+            title: "Flavor & Fragrance",
+            heading: "Innovating Sustainable Solutions in Flavor & Fragrance Industry",
+            desc: "We deliver premium raw materials for the flavor and fragrance industry, focusing on durability, performance, and sustainability. Through reliable sourcing and supply, we help clients develop products that meet modern industry standards.",
         },
         {
             slug: "cigarettes-and-vape",

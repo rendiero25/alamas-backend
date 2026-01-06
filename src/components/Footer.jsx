@@ -65,12 +65,12 @@ const Footer = () => {
 
 
                 <div className="py-12 my-10 text-center">
-                    <h2 className="text-4xl md:text-[80px] font-thin">
+                    <h2 className="text-3xl md:text-[80px] font-thin leading-relaxed">
                         alamas | chemical distributor company
                     </h2>
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-between items-center text-[14px] text-white/70 font-medium gap-6">
+                <div className="flex flex-col md:flex-row text-center leading-relaxed xl:text-left justify-between items-center text-[14px] text-white/70 font-medium gap-6">
                     <p>© 2026 Alamas Niaga Gemilang. All Rights Reserved. developed by <a href="http://rendiero.site" className="text-white hover:font-bold transition-colors">rendiero</a></p>
                     <div className="flex gap-8">
                         <a href="#" className="hover:text-white transition-colors">Terms of Service</a>

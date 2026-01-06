@@ -62,7 +62,7 @@ const Hero = () => {
                     <div className="relative">
                         <button 
                             onClick={() => setShowEmail(!showEmail)}
-                            className="w-10 h-10 bg-[#1e1e1e] rounded-full flex items-center justify-center hover:scale-110 transition-transform cursor-pointer"
+                            className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:scale-110 transition-transform cursor-pointer"
                         >
                             <img src={MailIcon} alt="Email" className="w-8 h-8 object-contain invert-0" />
                         </button>
@@ -116,7 +116,7 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.6 }}
-                            className="text-white text-base md:text-[25px] font-medium leading-relaxed mb-10 max-w-5xl"
+                            className="text-white text-lg md:text-[25px] font-medium leading-relaxed mb-10 max-w-5xl"
                         >
                             Access to decades of expertise and expansive supply network. We bridge the gap between global 
                             manufacturers and your facility with first-hand pricing and a zero-compromise approach to quality.

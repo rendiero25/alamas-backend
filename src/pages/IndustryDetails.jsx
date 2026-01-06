@@ -15,7 +15,7 @@ import VapeBg from "../assets/industry/industries5.png";
 
 const industryInfo = {
     "polyurethanes": {
-        name: "Polyurethanes",
+        name: "Polyurethanes Foam",
         bg: PolyBg,
         heading: "Elevating Polyurethanes & Hygiene Standards with Premium Materials   ",
         desc: "We provide from the chemicals to equipment & machine parts to run your polyurethane foam business smoothly",
@@ -35,11 +35,11 @@ const industryInfo = {
         desc: "We provide sweetener, preservatives, thickener, stabilizer, food coloring and other additives.",
         productListDesc: "The following are chemical products that we are ready to distribute throughout Indonesia and overseas. For information on products not mentioned, please feel free to contact us."
     },
-    "paint-and-coatings": {
-        name: "Paint and Coatings",
+    "flavor-and-fragrance": {
+        name: "Flavor & Fragrance",
         bg: PaintBg,
         heading: "Elevating Polyurethanes & Hygiene Standards with Premium Materials",
-        desc: "We deliver premium raw materials for the paint and coatings industry, focusing on durability, performance, and sustainability. Through reliable sourcing and supply, we help clients develop products that meet modern industry standards.",
+        desc: "We deliver premium raw materials for the flavor and fragrance industry, focusing on durability, performance, and sustainability. Through reliable sourcing and supply, we help clients develop products that meet modern industry standards.",
         productListDesc: "The following are chemical products that we are ready to distribute throughout Indonesia and overseas. For information on products not mentioned, please feel free to contact us."
     },
     "cigarettes-and-vape": {

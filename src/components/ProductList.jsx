@@ -178,7 +178,7 @@ const ProductList = () => {
                                                 {product.industries.map((ind, iIdx) => {
                                                     const industryColors = {
                                                         "Food Ingredients": "#009F6F",
-                                                        "Paint and Coatings": "#026DD6",
+                                                        "Flavor & Fragrance": "#026DD6",
                                                         "Home and Personal Care": "#E107CB",
                                                         "Polyurethane Foam": "#E14640",
                                                         "Cigarettes and Vape": "#333333"

@@ -10,7 +10,7 @@ const IndustrySections = () => {
 
     const industries = [
         {
-            category: 'Polyurethanes',
+            category: 'Polyurethanes Foam',
             title: 'Elevating Polyurethanes & Hygiene Standards with Premium Materials',
             desc: 'We supply essential raw materials for polyurethane and hygiene applications, ensuring product safety, performance, and quality. With innovation at the core, we help our partners deliver effective and reliable solutions to the market.',
             bg: Industry1,
@@ -87,7 +87,7 @@ const IndustrySections = () => {
                             
                             <div className="absolute inset-0 flex items-center p-6 md:p-12">
                                 <div className={`${item.cardBg} p-8 2xl:p-12 rounded-2xl max-w-3xl relative`}>
-                                    <span className="text-white text-[25px] font-medium italic mb-2 block">
+                                    <span className="text-white text-[25px] font-medium italic mb-2 block leading-tight">
                                         {item.category}
                                     </span>
                                     <h3 className="text-white text-lg md:text-[35px] font-bold mb-2 leading-tight">
