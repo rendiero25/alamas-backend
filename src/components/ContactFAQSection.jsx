@@ -169,7 +169,7 @@ const ContactFAQSection = () => {
                                             </span>
                                         </button>
                                         
-                                        <div className={`mt-4 mr-5 md:mr-0 text-black text-[20px] md:text-[25px] leading-relaxed overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+                                        <div className={`mt-4 mr-5 md:mr-0 text-black text-[20px] md:text-[25px] leading-relaxed transition-all duration-300 overflow-hidden ${openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
                                             {faq.a}
                                         </div>
                                     </div>
