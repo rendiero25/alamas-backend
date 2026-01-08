@@ -94,7 +94,7 @@ const Hero = () => {
                 {/* Dark Overlay for better text readability */}
                 <div className="absolute inset-0"></div>
 
-                <div className="container mx-auto px-10 xl:px-15 2xl:px-10 relative z-10 w-full">
+                <div className="container mx-auto px-10 xl:px-15 2xl:px-19 relative z-10 w-full">
                     <div className="max-w-5xl 2xl:-ml-10">
                         <motion.p 
                             initial={{ opacity: 0, y: 30 }}

@@ -27,30 +27,30 @@ const ServicesSection = () => {
 
     return (
         <section className="font-primary">
-            <div className="container mx-auto px-10 2xl:px-2">
+            <div className="container mx-auto px-10 2xl:px-19">
                 <div className="flex flex-col 2xl:flex-row gap-2 items-center lg:items-start justify-between mb-16">
                     <div className="flex flex-col xl:flex-row 2xl:flex-col justify-between items-center xl:items-end 2xl:items-start gap-10">
-                        <h2 className="text-5xl md:text-[50px] font-extrabold uppercase text-black leading-none">
+                        <h2 className="text-4xl md:text-[50px] font-extrabold uppercase text-black leading-none">
                             Services <br />
-                            <span className="font-light text-[100px] text-primary uppercase" >We <br /> Offer</span>
+                            <span className="font-light text-[80px] xl:text-[100px] text-primary uppercase" >We <br /> Offer</span>
                         </h2>
 
-                        <motion.p 
+                        <motion.p
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                             className="text-black text-[25px] leading-relaxed w-full 2xl:max-w-sm text-center xl:text-left"
                         >
-                            At Alamas, We Deliver Tailored 
-                            solutions from consulting to 
-                            sourcing and supply chain, 
-                            ensuring quality and reliability 
+                            At Alamas, We Deliver Tailored
+                            solutions from consulting to
+                            sourcing and supply chain,
+                            ensuring quality and reliability
                             every step of the way.
                         </motion.p>
                     </div>
 
-                    <motion.div 
+                    <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
@@ -64,17 +64,17 @@ const ServicesSection = () => {
                         className="flex flex-row flex-wrap items-center 2xl:items-start justify-center justify-between gap-5 mt-5 2xl:mt-0"
                     >
                         {services.map((service, index) => (
-                            <motion.div 
-                                key={index} 
+                            <motion.div
+                                key={index}
                                 variants={{
                                     hidden: { opacity: 0, y: 30 },
                                     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
                                 }}
-                                className="relative h-[650px] w-[325px] 2xl:w-[350px] rounded-2xl overflow-hidden group shadow-lg"
+                                className="relative h-[650px] w-[325px] 2xl:w-[305px] rounded-2xl overflow-hidden group shadow-lg"
                             >
-                                <img 
-                                    src={service.bg} 
-                                    alt={service.title} 
+                                <img
+                                    src={service.bg}
+                                    alt={service.title}
                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>

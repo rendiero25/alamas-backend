@@ -98,6 +98,9 @@
     --font-primary: 'Filson Pro', sans-serif;
     
     
+    --breakpoint-3xl: 1920px;
+    --breakpoint-4xl: 2560px;
+    --breakpoint-5xl: 3840px;
 }
 
 body {

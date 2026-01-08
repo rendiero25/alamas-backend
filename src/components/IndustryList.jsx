@@ -47,7 +47,7 @@ const IndustryList = () => {
 
     return (
         <section className="w-full flex flex-col gap-12 md:gap-24 font-primary mb-[75px]">
-            <div className="container mx-auto px-10 2xl:px-0">
+            <div className="container mx-auto px-10 md:px-18 xl:px-19 2xl:px-19">
                 <div className="mb-0">
                     <h2 className="text-3xl md:text-[50px] font-bold text-primary">
                         Chemical Solutions <span className="text-black font-bold">For Every Industry</span>
@@ -58,7 +58,7 @@ const IndustryList = () => {
                 </div>
             </div>
 
-            <div className="container mx-auto px-10 2xl:px-0 flex flex-col gap-16 md:gap-20">
+            <div className="container mx-auto px-10 md:px-18 xl:px-19 2xl:px-19 flex flex-col gap-16 md:gap-20">
                 {industries.map((item, index) => (
                     <motion.div 
                         key={index}

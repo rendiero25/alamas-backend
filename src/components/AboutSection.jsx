@@ -14,7 +14,7 @@ const AboutSection = () => {
 
     return (
         <section id='aboutusection' className="container mx-auto bg-white font-primary">
-            <div className="px-10 2xl:px-2">
+            <div className="px-10 2xl:px-19">
                 <div className="flex flex-col justify-between items-start gap-12">
                     <motion.div 
                         initial={{ opacity: 0, x: -30 }}
@@ -35,7 +35,7 @@ const AboutSection = () => {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="w-full"
                     >
-                        <h2 className="text-3xl md:text-[50px] font-normal text-black leading-snug">
+                        <h2 className="text-2xl md:text-[50px] font-normal text-black leading-snug">
                             Founded in 2023 
                             <span className="inline-block align-middle mx-2">
                                 <img src={TimeCircleIcon} alt="timecircleicon" className="w-7 md:w-12" />
@@ -77,11 +77,11 @@ const AboutSection = () => {
                                     }}
                                     className="flex flex-col"
                                 >
-                                    <span className="text-[100px] font-medium text-black mb-2">
+                                    <span className="text-[70px] xl:text-[80px] 2xl:text-[85px] font-medium text-black mb-2">
                                         {stat.value}
                                     </span>
 
-                                    <span className="text-black text-[30px] font-medium w-full">
+                                    <span className="text-black text-[25px] font-medium w-full">
                                         {stat.label}
                                     </span>
                                 </motion.div>

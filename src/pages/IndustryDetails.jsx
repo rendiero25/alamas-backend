@@ -107,7 +107,7 @@ const IndustryDetails = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="container mx-auto px-10 2xl:px-0 flex flex-col md:flex-row justify-between items-end gap-12"
+                className="container mx-auto px-10 md:px-18 xl:px-19 2xl:px-19 flex flex-col md:flex-row justify-between items-end gap-12"
             >
                 <div className="md:w-1/2">
                     <h2 className="text-[45px] sm:text-[50px] font-medium text-black leading-tight">

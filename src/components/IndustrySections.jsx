@@ -36,8 +36,8 @@ const IndustrySections = () => {
     ];
 
     return (
-        <section className="px-8 md:px-24 bg-white font-sans">
-            <div className="container mx-auto">
+        <section className="bg-white font-sans">
+            <div className="container mx-auto px-10 md:px-18 xl:px-19 2xl:px-19">
                 <motion.div 
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ const IndustrySections = () => {
 
                     <h2 className="text-3xl md:text-[50px] font-noraml text-black w-full leading-tight max-w-[82rem]">
                         From sourcing to supply chain innovation,<br />
-                        <span className="text-primary font-bold text-[50px]">Our solutions are built to deliver efficiency, safety, and long-term resilience for industries.</span>
+                        <span className="text-primary font-bold text-3xl xl:text-[50px]">Our solutions are built to deliver efficiency, safety, and long-term resilience for industries.</span>
                     </h2>
                 </motion.div>
 

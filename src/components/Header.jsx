@@ -28,7 +28,7 @@ const Header = () => {
 
     return (
         <header className={isContactPage ? 'w-full bg-white font-primary' : 'w-full bg-[#F0F0F0] font-primary'}>
-            <div className="container mx-auto px-10 md:px-18 xl:px-19 2xl:px-0 h-24 flex items-center flex flex-row justify-between">
+            <div className="container mx-auto px-10 md:px-18 xl:px-19 2xl:px-19 h-24 flex items-center flex flex-row justify-between">
                 {/* Logo Section */}
                 <div className="flex items-center gap-2">
                     {/* Placeholder for Logo Icon - stylized 'A' */}

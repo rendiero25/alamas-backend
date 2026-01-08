@@ -10,11 +10,11 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <footer className="bg-black text-white pt-30 pb-10 font-primary" style={{ backgroundImage: `url(${BgFooter})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className="container mx-auto px-10 2xl:px-2">
+            <div className="container mx-auto px-10 md:px-18 xl:px-19 2xl:px-19">
                 <div className="flex flex-col md:flex-row justify-between gap-12 mb-20">
                     <div className="w-full 2xl:w-1/2 flex flex-col gap-6 justify-between items-start">
                         <a href="/"><img src={WhiteLogo} alt="Alamas" className="w-70 object-contain" /></a>
-                        <p className="text-white text-[25px] font-medium leading-relaxed">
+                        <p className="text-white text-[20px] xl:text-[25px] font-medium leading-relaxed">
                             PT Alamas Niaga Gemilang is a chemical raw material distributor, proudly representing principals from around the globe, and are home to hundreds of chemical for different applications.
                         </p>
                     </div>

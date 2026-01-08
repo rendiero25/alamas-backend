@@ -6,7 +6,7 @@ const ContactUs = () => {
     return (
         <div className="font-primary">
             {/* Hero Section */}
-            <section className="container mx-auto px-10 2xl:px-0 pt-10 xl:pt-20 mb-[75px]">
+            <section className="container mx-auto px-10 md:px-18 xl:px-19 2xl:px-19 pt-10 xl:pt-20 mb-[75px]">
                 <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
                     {/* Left: Title */}
                     <motion.div 

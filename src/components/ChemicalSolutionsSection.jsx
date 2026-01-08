@@ -38,8 +38,8 @@ const ChemicalSolutionsSection = () => {
     });
 
     return (
-        <section className="px-8 md:px-24 bg-white font-primary">
-            <div className="container mx-auto flex flex-col justify-between items-start gap-12">
+        <section className="bg-white font-primary">
+            <div className="container mx-auto px-10 md:px-18 xl:px-19 2xl:px-19 flex flex-col justify-between items-start gap-12">
                 <motion.div 
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +53,7 @@ const ChemicalSolutionsSection = () => {
                     
                     <h2 className="text-3xl md:text-[50px] font-normal text-black w-full leading-tight">
                         Chemical Solutions for Your Business.<br />
-                        <span className="text-primary font-bold text-[50px]">
+                        <span className="text-primary font-bold text-3xl xl:text-[50px]">
                             From general chemicals to specialty chemicals, we have it all
                         </span>
                     </h2>

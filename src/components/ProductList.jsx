@@ -73,7 +73,7 @@ const ProductList = () => {
 
     return (
         <section className="font-primary mb-[75px]">
-            <div className="container mx-auto px-10 2xl:px-0">
+            <div className="container mx-auto px-10 md:px-18 xl:px-19 2xl:px-19">
                 <motion.div 
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
