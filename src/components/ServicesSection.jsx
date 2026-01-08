@@ -28,7 +28,7 @@ const ServicesSection = () => {
     return (
         <section className="font-primary">
             <div className="container mx-auto px-10 2xl:px-19">
-                <div className="flex flex-col 2xl:flex-row gap-2 items-center lg:items-start justify-between mb-16">
+                <div className="flex flex-col 2xl:flex-row gap-2 items-center lg:items-start justify-between">
                     <div className="flex flex-col xl:flex-row 2xl:flex-col justify-between items-center xl:items-end 2xl:items-start gap-10">
                         <h2 className="text-4xl md:text-[50px] font-extrabold uppercase text-black leading-none">
                             Services <br />
