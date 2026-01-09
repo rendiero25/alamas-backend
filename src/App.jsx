@@ -8,6 +8,13 @@ import Product from "./pages/Product";
 import Industry from "./pages/Industry";
 import IndustryDetails from "./pages/IndustryDetails";
 import ContactUs from "./pages/ContactUs";
+import Dashboard from "./pages/admin/Dashboard";
+import ManageProducts from "./pages/admin/ManageProducts";
+import ManageCategories from "./pages/admin/ManageCategories";
+
+import Login from "./pages/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
+import ManageIndustries from "./pages/admin/ManageIndustries";
 
 const App = () => {
     return (
@@ -21,6 +28,17 @@ const App = () => {
                 <Route path="/industry" element={<Industry />} />
                 <Route path="/industry/:slug" element={<IndustryDetails />} />
                 <Route path="/contact" element={<ContactUs />} />
+                
+                <Route path="/login" element={<Login />} />
+
+                {/* Admin Routes (Protected) */}
+                <Route element={<ProtectedRoute />}>
+                    <Route path="/admin" element={<Dashboard />} />
+                    <Route path="/admin/dashboard" element={<Dashboard />} />
+                    <Route path="/admin/products" element={<ManageProducts />} />
+                    <Route path="/admin/industries" element={<ManageIndustries />} />
+                    <Route path="/admin/categories" element={<ManageCategories />} />
+                </Route>
             </Routes>
             <Footer />
         </Router> 

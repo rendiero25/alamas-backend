@@ -1,6 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion } from 'motion/react';
-import productsData from '../data/products.json';
+import api from '../api';
 import { FaFlask, FaVial, FaMicroscope, FaDna, FaAtom, FaFillDrip, FaIndustry } from 'react-icons/fa';
 import SearchIcon from "../assets/products/search-icon.png";
 import ArrowDown from "../assets/products/arrow-down.png";
@@ -19,16 +19,85 @@ const ProductList = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [selectedIndustry, setSelectedIndustry] = useState('All');
+    const [productsData, setProductsData] = useState([]);
+    const [categoriesData, setCategoriesData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                // Fetch Products and Categories in parallel
+                const [prodRes, catRes] = await Promise.all([
+                    api.get('/products'),
+                    api.get('/categories')
+                ]);
+                
+                const flatProducts = prodRes.data;
+                const fetchedCategories = catRes.data;
+                setCategoriesData(fetchedCategories);
+
+                // Transform Flat API data to Nested Structure to match existing Logic
+                // Structure needed: [{ name: "Industry Name", categories: [{ name: "Cat Name", products: ["P1", "P2"] }] }]
+                
+                const industryMap = {};
+
+                flatProducts.forEach(product => {
+                    const industryName = product.industry ? product.industry.name : 'Unknown';
+                    const categoryName = product.category;
+
+                    if (!industryMap[industryName]) {
+                        industryMap[industryName] = {
+                            name: industryName,
+                            categories: {}
+                        };
+                    }
+
+                    if (!industryMap[industryName].categories[categoryName]) {
+                        industryMap[industryName].categories[categoryName] = {
+                            name: categoryName,
+                            products: []
+                        };
+                    }
+
+                    industryMap[industryName].categories[categoryName].products.push(product.name);
+                });
+
+                // Convert map to array
+                const transformedData = Object.values(industryMap).map(ind => ({
+                    ...ind,
+                    categories: Object.values(ind.categories)
+                }));
+                
+                setProductsData(transformedData);
+            } catch (error) {
+                console.error("Failed to fetch data", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    // Helper to get category icon
+    const getCategoryIcon = (catName) => {
+        const cat = categoriesData.find(c => c.name === catName);
+        if (cat && cat.icon) {
+            const iconUrl = cat.icon.startsWith('/') ? `http://localhost:5000${cat.icon}` : cat.icon;
+            return <img src={iconUrl} alt={catName} className="w-8 h-8 object-contain" />;
+        }
+        return <FaFlask className='text-black text-2xl'/>; // Default fallback
+    };
+    
     // Extract all unique categories and industries for dropdowns
-    const allIndustries = useMemo(() => ['All', ...productsData.map(i => i.name)], []);
+    const allIndustries = useMemo(() => ['All', ...productsData.map(i => i.name)], [productsData]);
     const allCategories = useMemo(() => {
         const cats = new Set();
         productsData.forEach(ind => {
             ind.categories.forEach(cat => cats.add(cat.name));
         });
         return ['All', ...Array.from(cats)];
-    }, []);
+    }, [productsData]);
 
     // Filter and group products
     const filteredGroupedProducts = useMemo(() => {
@@ -69,7 +138,11 @@ const ProductList = () => {
         });
 
         return grouped;
-    }, [searchTerm, selectedCategory, selectedIndustry]);
+    }, [searchTerm, selectedCategory, selectedIndustry, productsData]);
+
+    if (loading) {
+        return <div className="text-center py-20">Loading products...</div>;
+    }
 
     return (
         <section className="font-primary mb-[75px]">
@@ -138,7 +211,7 @@ const ProductList = () => {
                         <div key={categoryName}>
                             <div className="flex items-center gap-3 mb-6">
                                 <span className="text-primary text-2xl">
-                                    {categoryIcons[categoryName] || <FaFlask />}
+                                    {getCategoryIcon(categoryName)}
                                 </span>
                                 <h3 className="text-xl md:text-[30px] font-normal text-black">
                                     {categoryName}
