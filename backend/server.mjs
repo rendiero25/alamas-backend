@@ -24,6 +24,17 @@ const __dirname = path.dirname(__filename);
 app.use(cors());
 app.use(express.json());
 
+// Check DB Connection Middleware
+app.use((req, res, next) => {
+  if (mongoose.connection.readyState !== 1) {
+    return res.status(500).json({ 
+        message: 'Database not connected. Please check MONGODB_URI in environment variables.',
+        readyState: mongoose.connection.readyState 
+    });
+  }
+  next();
+});
+
 // Routes
 app.use('/api/industries', industryRoutes);
 app.use('/api/products', productRoutes);
