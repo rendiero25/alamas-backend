@@ -1,9 +1,10 @@
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-const fs = require('fs');
-const path = require('path');
-const Industry = require('./models/Industry');
-const Product = require('./models/Product');
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import Industry from './models/Industry.js';
+import Product from './models/Product.js';
 
 dotenv.config();
 
@@ -14,6 +15,10 @@ mongoose.connect(process.env.MONGODB_URI)
     console.error(err);
     process.exit(1);
   });
+
+// ESM equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Read JSON file
 const productsPath = path.join(__dirname, '../src/data/products.json');
