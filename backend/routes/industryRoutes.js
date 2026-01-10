@@ -32,13 +32,13 @@ router.post('/', protect, upload.single('image'), async (req, res) => {
     description: req.body.description,
     heading: req.body.heading,
     productListDescription: req.body.productListDescription
-    // Image is handled below
   };
 
   if (req.file) {
-    industryData.image = `/uploads/${req.file.filename}`;
+    const b64 = Buffer.from(req.file.buffer).toString('base64');
+    let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
+    industryData.image = dataURI;
   } else if (req.body.image) {
-      // Handle manual URL if provded
       industryData.image = req.body.image;
   }
 
@@ -62,7 +62,9 @@ router.put('/:id', protect, upload.single('image'), async (req, res) => {
     if (req.body.productListDescription) industry.productListDescription = req.body.productListDescription;
     
     if (req.file) {
-      industry.image = `/uploads/${req.file.filename}`;
+      const b64 = Buffer.from(req.file.buffer).toString('base64');
+      let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
+      industry.image = dataURI;
     } else if (req.body.image) {
         industry.image = req.body.image;
     }

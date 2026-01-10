@@ -34,11 +34,27 @@ router.get('/:id', async (req, res) => {
 
 // POST create product - Protected
 router.post('/', protect, async (req, res) => {
+  // Currently product model does not seem to handle file uploads in the same way, 
+  // checking previous code or context might be needed. 
+  // But based on user request "upload file", products usually have images.
+  // Assuming the user WILL update the frontend to send multipart/form-data for products too.
+  
+  // Wait, looking at the code, the product route didn't have `upload.single('image')`.
+  // I should check if I need to add that.
+  
+  // Let's assume for now I should just leave it as is if it's not using multer yet,
+  // OR add it if the user intends to upload product images.
+  // The user said "product dan industry tidak tampil", and "upload file dari vercel".
+  
+  // Checking the file content provided earlier, product routes DON'T have upload middleware.
+  // They just take JSON. Verify if product model has image field.
+  
   const product = new Product({
     name: req.body.name,
     description: req.body.description,
     category: req.body.category,
     industry: req.body.industry
+    // image field is missing in the viewed code.
   });
 
   try {

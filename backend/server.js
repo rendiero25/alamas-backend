@@ -32,22 +32,31 @@ app.get('/', (req, res) => {
 
 // Database Connection
 const connectDB = async () => {
-  try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI);
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
-  } catch (error) {
-    console.error(`Error: ${error.message}`);
-    process.exit(1);
+    // Check if we have a connection to the database or if it's currently connecting or disconnecting
+    if (mongoose.connection.readyState >= 1) {
+      return;
+    }
+  
+    try {
+      const conn = await mongoose.connect(process.env.MONGODB_URI);
+      console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+      console.error(`Error: ${error.message}`);
+      process.exit(1);
+    }
+  };
+  
+  // Connect to DB immediately
+  if (process.env.MONGODB_URI) {
+      connectDB();
   }
-};
-
-// Start Server
-if (process.env.MONGODB_URI) {
-    connectDB().then(() => {
-        app.listen(PORT, () => {
-            console.log(`Server running on port ${PORT}`);
-        });
-    });
-} else {
-    console.log('MONGODB_URI not found in .env. Server not started fully.');
-}
+  
+  // Start Server only if running directly
+  if (require.main === module) {
+      const PORT = process.env.PORT || 5000;
+      app.listen(PORT, () => {
+          console.log(`Server running on port ${PORT}`);
+      });
+  }
+  
+  module.exports = app;
