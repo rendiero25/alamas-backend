@@ -1,9 +1,10 @@
-const express = require('express');
+import express from 'express';
+import Category from '../models/Category.js';
+import multer from 'multer';
+import path from 'path';
+import fs from 'fs';
+
 const router = express.Router();
-const Category = require('../models/Category');
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
 
 // Configure Multer for local storage
 const storage = multer.diskStorage({
@@ -75,4 +76,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

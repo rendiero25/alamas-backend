@@ -1,17 +1,24 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const mongoose = require('mongoose');
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 
-const industryRoutes = require('./routes/industryRoutes');
-const productRoutes = require('./routes/productRoutes');
-const categoryRoutes = require('./routes/categoryRoutes');
-const authRoutes = require('./routes/authRoutes');
+import industryRoutes from './routes/industryRoutes.js';
+import productRoutes from './routes/productRoutes.js';
+import categoryRoutes from './routes/categoryRoutes.js';
+import authRoutes from './routes/authRoutes.js';
+
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// ESM equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Middleware
 app.use(cors());
@@ -23,7 +30,6 @@ app.use('/api/products', productRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/auth', authRoutes);
 
-const path = require('path');
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 app.get('/', (req, res) => {
@@ -51,12 +57,13 @@ const connectDB = async () => {
       connectDB();
   }
   
-  // Start Server only if running directly
-  if (require.main === module) {
-      const PORT = process.env.PORT || 5000;
+  // Start Server only if running directly (ESM way to check entry point)
+  // In ESM, require.main === module doesn't exist. 
+  // We can check if the file is being executed directly using import.meta.url
+  if (process.argv[1] === fileURLToPath(import.meta.url)) {
       app.listen(PORT, () => {
           console.log(`Server running on port ${PORT}`);
       });
   }
   
-  module.exports = app;
+  export default app;

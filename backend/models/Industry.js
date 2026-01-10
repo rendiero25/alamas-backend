@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const industrySchema = new mongoose.Schema({
   name: {
@@ -20,4 +20,4 @@ const industrySchema = new mongoose.Schema({
   productListDescription: String,
 }, { timestamps: true });
 
-module.exports = mongoose.model('Industry', industrySchema);
+export default mongoose.model('Industry', industrySchema);

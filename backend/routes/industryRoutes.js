@@ -1,8 +1,9 @@
-const express = require('express');
+import express from 'express';
+import Industry from '../models/Industry.js';
+import upload from '../middleware/uploadMiddleware.js';
+import { protect } from '../middleware/authMiddleware.js';
+
 const router = express.Router();
-const Industry = require('../models/Industry');
-const upload = require('../middleware/uploadMiddleware');
-const { protect } = require('../middleware/authMiddleware');
 
 // GET all industries - Public
 router.get('/', async (req, res) => {
@@ -89,4 +90,4 @@ router.delete('/:id', protect, async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
