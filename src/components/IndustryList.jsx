@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import api from "../api";
+import { motion } from "motion/react";
+import api, { BACKEND_URL } from "../api";
 import { Link } from "react-router-dom";
 
 const IndustryList = () => {
@@ -25,7 +25,7 @@ const IndustryList = () => {
     const getImageUrl = (imagePath) => {
         if (!imagePath) return '';
         if (imagePath.startsWith('http')) return imagePath;
-        return `http://localhost:5000${imagePath}`;
+        return `${BACKEND_URL}${imagePath}`;
     };
 
     if (loading) return <div className="text-center py-20">Loading...</div>;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import api from '../api';
+import { motion } from 'motion/react';
+import api, { BACKEND_URL } from '../api';
 import ContactFAQSection from '../components/ContactFAQSection';
 import { FaFlask, FaVial, FaMicroscope, FaDna, FaAtom, FaFillDrip, FaIndustry } from 'react-icons/fa';
 
@@ -25,7 +25,7 @@ const IndustryDetails = () => {
     const getImageUrl = (imagePath) => {
         if (!imagePath) return '';
         if (imagePath.startsWith('http')) return imagePath;
-        return `http://localhost:5000${imagePath}`;
+        return `${BACKEND_URL}${imagePath}`;
     };
 
     useEffect(() => {

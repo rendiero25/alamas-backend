@@ -1,19 +1,11 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { motion } from 'motion/react';
-import api from '../api';
+import api, { BACKEND_URL } from '../api';
 import { FaFlask, FaVial, FaMicroscope, FaDna, FaAtom, FaFillDrip, FaIndustry } from 'react-icons/fa';
 import SearchIcon from "../assets/products/search-icon.png";
 import ArrowDown from "../assets/products/arrow-down.png";
 
-const categoryIcons = {
-    'Acids': <FaFlask className='text-black'/>,
-    'Polyols and Glycols': <FaVial className='text-black'/>,
-    'Solvents': <FaMicroscope className='text-black'/>,
-    'Surfactants and Emulsifiers': <FaDna className='text-black'/>,
-    'Catalysts': <FaAtom className='text-black'/>,
-    'Specialty Chemicals': <FaFillDrip className='text-black'/>,
-    'Industrial Chemicals': <FaIndustry className='text-black'/>
-};
+
 
 const ProductList = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -83,7 +75,7 @@ const ProductList = () => {
     const getCategoryIcon = (catName) => {
         const cat = categoriesData.find(c => c.name === catName);
         if (cat && cat.icon) {
-            const iconUrl = cat.icon.startsWith('/') ? `http://localhost:5000${cat.icon}` : cat.icon;
+            const iconUrl = cat.icon.startsWith('/') ? `${BACKEND_URL}${cat.icon}` : cat.icon;
             return <img src={iconUrl} alt={catName} className="w-8 h-8 object-contain" />;
         }
         return <FaFlask className='text-black text-2xl'/>; // Default fallback

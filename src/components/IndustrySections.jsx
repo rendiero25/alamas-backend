@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import api from '../api';
+import api, { BACKEND_URL } from '../api';
 
 const IndustrySections = () => {
     const navigate = useNavigate();
@@ -22,7 +22,7 @@ const IndustrySections = () => {
                     category: ind.name,
                     title: ind.heading,
                     desc: ind.description,
-                    bg: ind.image ? `http://localhost:5000${ind.image}` : null, // Handle image path
+                    bg: ind.image ? `${BACKEND_URL}${ind.image}` : null, // Handle image path
                     cardBg: 'bg-black/25 backdrop-blur-2xl',
                     slug: getSlug(ind.name)
                 }));

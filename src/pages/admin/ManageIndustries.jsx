@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../api';
+import api, { BACKEND_URL } from '../../api';
 import { FaPlus, FaEdit, FaTrash, FaArrowLeft } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
@@ -201,7 +201,7 @@ const ManageIndustries = () => {
                   {formData.image && !imageFile && (
                       <div className="mb-2">
                           <p className="text-xs text-gray-500 mb-1">Current Image:</p>
-                          <img src={formData.image.startsWith('/') ? 'http://localhost:5000' + formData.image : formData.image} alt="Preview" className="h-20 object-cover rounded" />
+                          <img src={formData.image.startsWith('/') ? `${BACKEND_URL}${formData.image}` : formData.image} alt="Preview" className="h-20 object-cover rounded" />
                       </div>
                   )}
                   <input 

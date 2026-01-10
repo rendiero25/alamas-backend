@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../api';
+import api, { BACKEND_URL } from '../../api';
 import { FaPlus, FaTrash, FaArrowLeft } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
@@ -148,7 +148,7 @@ const ManageCategories = () => {
             <div key={cat._id} className="bg-white border rounded-xl p-6 shadow-sm flex items-center justify-between">
               <div className="flex items-center gap-4">
                  <img 
-                    src={cat.icon.startsWith('/') ? `http://localhost:5000${cat.icon}` : cat.icon} 
+                    src={cat.icon.startsWith('/') ? `${BACKEND_URL}${cat.icon}` : cat.icon} 
                     alt={cat.name} 
                     className="w-10 h-10 object-contain"
                  />
