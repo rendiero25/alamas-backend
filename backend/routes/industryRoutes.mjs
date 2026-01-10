@@ -3,6 +3,8 @@ import Industry from '../models/Industry.mjs';
 import upload from '../middleware/uploadMiddleware.mjs';
 import { protect } from '../middleware/authMiddleware.mjs';
 
+console.log("Loading Industry Routes...");
+
 const router = express.Router();
 
 // GET all industries - Public

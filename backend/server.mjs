@@ -24,6 +24,13 @@ const __dirname = path.dirname(__filename);
 app.use(cors());
 app.use(express.json());
 
+console.log('Industry Routes:', industryRoutes);
+console.log('Product Routes:', productRoutes);
+console.log('Category Routes:', categoryRoutes);
+console.log('Auth Routes:', authRoutes);
+
+// Check DB Connection Middleware
+
 // Check DB Connection Middleware
 app.use((req, res, next) => {
   if (mongoose.connection.readyState !== 1) {
