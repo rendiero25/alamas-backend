@@ -1,39 +1,38 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import Industry1 from '../assets/index/industries1.png';
-import Industry2 from '../assets/index/industries2.png';
-import Industry3 from '../assets/index/industries3.png';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'motion/react';
+import api from '../api';
 
 const IndustrySections = () => {
     const navigate = useNavigate();
+    const [industries, setIndustries] = useState([]);
 
-    const industries = [
-        {
-            category: 'Polyurethanes Foam',
-            title: 'Elevating Polyurethanes & Hygiene Standards with Premium Materials',
-            desc: 'We supply essential raw materials for polyurethane and hygiene applications, ensuring product safety, performance, and quality. With innovation at the core, we help our partners deliver effective and reliable solutions to the market.',
-            bg: Industry1,
-            cardBg: 'bg-black/25 backdrop-blur-2xl',
-            slug: 'polyurethanes',
-        },
-        {
-            category: 'Home & Personal Care',
-            title: 'High-Quality Raw Materials for Household & Personal Care',
-            desc: 'We provide trusted raw materials for hygiene, grooming, and household care products. By maintaining strict quality standards and fostering innovation, we support brands in delivering safe, effective, and consumer-trusted solutions.',
-            bg: Industry2,
-            cardBg: 'bg-black/25 backdrop-blur-2xl',
-            slug: 'home-and-personal-care',
-        },
-        {
-            category: 'Food Ingredients',
-            title: 'Leading Food and Beverages with Premium Ingredients and Expert Service',
-            desc: 'We source and distribute high-quality food ingredients that ensure taste, safety, and compliance. Our expertise helps clients innovate and meet evolving consumer demands with reliable and consistent supply.',
-            bg: Industry3,
-            cardBg: 'bg-black/25 backdrop-blur-2xl',
-            slug: 'food-ingredients',
-        },
-    ];
+    const getSlug = (name) => name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+
+    React.useEffect(() => {
+        const fetchIndustries = async () => {
+            try {
+                const res = await api.get('/industries');
+                // Sort by createdAt desc if available, or just map response
+                // Assuming sorting happens here or backend returns in strict order
+                const sorted = res.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                
+                // Map API data to component structure
+                const mapped = sorted.slice(0, 3).map(ind => ({
+                    category: ind.name,
+                    title: ind.heading,
+                    desc: ind.description,
+                    bg: ind.image ? `http://localhost:5000${ind.image}` : null, // Handle image path
+                    cardBg: 'bg-black/25 backdrop-blur-2xl',
+                    slug: getSlug(ind.name)
+                }));
+                setIndustries(mapped);
+            } catch (err) {
+                console.error("Failed to fetch industries", err);
+            }
+        };
+        fetchIndustries();
+    }, []);
 
     return (
         <section className="bg-white font-sans">

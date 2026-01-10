@@ -20,16 +20,16 @@ const Login = () => {
         try {
             const { data } = await api.post('/auth/login', { username, password });
             localStorage.setItem('userInfo', JSON.stringify(data));
-            navigate('/admin/dashboard');
+            navigate('/dashboard');
         } catch (err) {
             setError(err.response?.data?.message || 'Login failed');
         }
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-white font-primary">
+        <div className="flex items-center justify-center xl:py-25 font-primary">
             <div className="bg-white p-8 rounded-2xl w-full max-w-md">
-                <h1 className="text-3xl font-bold mb-6 text-center text-primary">Admin Login</h1>
+                <h1 className="text-3xl font-bold mb-6 text-center text-black">Admin Login</h1>
                 {error && <div className="bg-red-100 text-red-700 p-3 rounded mb-4">{error}</div>}
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                     <input 
@@ -48,7 +48,7 @@ const Login = () => {
                         className="border p-3 rounded-lg focus:outline-none focus:border-primary"
                         required
                     />
-                    <button type="submit" className="bg-primary text-white py-3 rounded-lg font-bold hover:bg-opacity-90 transition">
+                    <button type="submit" className="cursor-pointer bg-primary text-white py-3 rounded-lg font-bold hover:scale-103 transition">
                         Login
                     </button>
                 </form>

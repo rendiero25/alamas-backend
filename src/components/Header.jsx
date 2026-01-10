@@ -8,14 +8,16 @@ import LogoWaHeader from '../assets/header/logowaheader.png';
 import QuoteModal from './QuoteModal';
 
 
-const Header = () => {   
+const Header = () => {
 
     const location = useLocation();
     const isContactPage = location.pathname === '/contact';
     const isLoginPage = location.pathname === '/login';
-    const isAdminDashboard = location.pathname === '/admin/dashboard';
-    const isAdminIndustries = location.pathname === '/admin/industries';
-    const isAdminProducts = location.pathname === '/admin/products';
+    const isAdminDashboard = location.pathname === '/dashboard';
+    const isAdminIndustries = location.pathname === '/dashboard/industries';
+    const isAdminProducts = location.pathname === '/dashboard/products';
+    const isAdminCategories = location.pathname === '/dashboard/categories';
+    // const isNotFound = location.pathname === '*';
 
     const navigate = useNavigate();
 
@@ -31,7 +33,7 @@ const Header = () => {
         ]
 
     return (
-        <header className={isContactPage || isLoginPage || isAdminDashboard || isAdminIndustries || isAdminProducts ? 'w-full bg-white font-primary' : 'w-full bg-[#F0F0F0] font-primary'}>
+        <header className={isContactPage || isLoginPage || isAdminDashboard || isAdminIndustries || isAdminProducts || isAdminCategories ? 'w-full bg-white font-primary' : 'w-full bg-[#F0F0F0] font-primary'}>
             <div className="container mx-auto px-10 md:px-18 xl:px-19 2xl:px-19 h-24 flex items-center flex flex-row justify-between">
                 {/* Logo Section */}
                 <div className="flex items-center gap-2">
@@ -43,13 +45,13 @@ const Header = () => {
 
                 {/* Navigation Links - Hidden on mobile, visible on lg */}
                 <div className='flex w-full items-center pl-15'>
-                    <nav className="hidden xl:flex items-center gap-8">
+                    <nav className="hidden xl:flex items-center gap-6">
                         {navigation.map((item) => {
                             return (
                                 <Link 
                                     key={item.name}
                                     to={item.href}
-                                    className="uppercase font-medium text-black hover:text-primary hover:font-bold text-[16px] transition-colors"
+                                    className="uppercase font-medium text-black hover:text-primary hover:font-bold text-[14px] transition-colors"
                                 >
                                     {item.name}
                                 </Link>
@@ -61,14 +63,15 @@ const Header = () => {
                 
 
                 {/* Right Action Section */}
-                <div className="hidden xl:flex items-center gap-6 flex flex-row justify-between items-start gap-20">
+                <div className="hidden xl:flex items-center gap-6 flex flex-row justify-between gap-20">
+                    
                     {/* WhatsApp Contact */}
                     <div className="flex items-center gap-3 hover:scale-110">
                         <img src={LogoWaHeader} alt="logo wa header" className='size-10'/>
                         <div className="flex flex-col">
-                            <span className="text-[10px] sm:text-xs font-bold text-gray-500 tracking-widest px-1">CONTACT US NOW!</span>
+                            <span className="text-[10px] sm:text-xs font-bold text-gray-500 px-1">CONTACT US NOW!</span>
                             <a href="https://wa.me/6281118895089" target="_blank" rel="noopener noreferrer">
-                                <span className="text-[16px] font-bold text-black leading-tight whitespace-nowrap">+62 811-1889-5089</span>
+                                <span className="text-[14px] font-bold text-black leading-tight whitespace-nowrap">+62 811-1889-5089</span>
                             </a>
                         </div>
                     </div>
@@ -76,10 +79,31 @@ const Header = () => {
                     {/* Get a Quote Button */}
                     <button 
                         onClick={() => setIsModalOpen(true)}
-                        className="bg-gray-900 hover:scale-110 text-white text-xs sm:text-sm font-bold py-3 px-6 rounded-full transition-colors whitespace-nowrap shadow-lg cursor-pointer"
+                        className="bg-gray-900 hover:scale-110 text-white text-xs font-bold py-3 px-4 rounded-full transition-colors whitespace-nowrap shadow-lg cursor-pointer"
                     >
                         GET A QUOTE
                     </button>
+
+                    {localStorage.getItem('userInfo') && (
+                        <div className="flex items-center gap-6 border-l pl-6 border-gray-300">
+                            <Link 
+                                to="/dashboard"
+                                className="uppercase font-bold text-black hover:text-primary transition-colors text-[14px]"
+                            >
+                                DASHBOARD
+                            </Link>
+                            <button 
+                                onClick={() => {
+                                    localStorage.removeItem('userInfo');
+                                    navigate('/');
+                                    window.location.reload(); 
+                                }}
+                                className="bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-3 px-4 rounded-full transition-colors whitespace-nowrap shadow-lg cursor-pointer"
+                            >
+                                LOGOUT
+                            </button>
+                        </div>
+                    )}
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -115,6 +139,28 @@ const Header = () => {
                                         {item.name}
                                     </Link>
                                 ))}
+                                {localStorage.getItem('userInfo') && (
+                                    <>
+                                        <Link 
+                                            to="/dashboard"
+                                            onClick={() => setIsMenuOpen(false)}
+                                            className="border-t pt-4 w-1/2 uppercase font-medium text-black hover:text-primary transition-colors text-lg"
+                                        >
+                                            Dashboard
+                                        </Link>
+                                        <button 
+                                            onClick={() => {
+                                                localStorage.removeItem('userInfo');
+                                                setIsMenuOpen(false);
+                                                navigate('/');
+                                                window.location.reload();
+                                            }}
+                                            className="uppercase font-medium text-left text-red-600 hover:text-red-700 transition-colors text-lg"
+                                        >
+                                            Logout
+                                        </button>
+                                    </>
+                                )}
                             </nav>
 
                             <div className="h-px bg-gray-200 w-full" />

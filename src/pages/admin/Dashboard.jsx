@@ -35,7 +35,7 @@ const Dashboard = () => {
     }, []);
 
   return (
-    <div className="container mx-auto px-10 py-20 font-primary">
+    <div className="container mx-auto px-10 md:px-18 xl:px-19 2xl:px-19 py-10 xl:py-20 font-primary">
       <h1 className="text-4xl font-bold mb-10 text-primary">Admin Dashboard</h1>
       
       {/* Stats Section */}
@@ -55,17 +55,17 @@ const Dashboard = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <Link to="/admin/products" className="bg-white border border-gray-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all group">
+        <Link to="/dashboard/products" className="bg-white border border-gray-200 p-8 rounded-2xl hover:shadow-md transition-all group">
           <h2 className="text-2xl font-bold mb-4 group-hover:text-primary">Manage Products</h2>
           <p className="text-gray-600">Add, edit, or delete chemical products.</p>
         </Link>
 
-        <Link to="/admin/industries" className="bg-white border border-gray-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all group">
+        <Link to="/dashboard/industries" className="bg-white border border-gray-200 p-8 rounded-2xl hover:shadow-md transition-all group">
           <h2 className="text-2xl font-bold mb-4 group-hover:text-primary">Manage Industries</h2>
           <p className="text-gray-600">Update industry details and descriptions.</p>
         </Link>
         
-        <Link to="/admin/categories" className="bg-white border border-gray-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all group">
+        <Link to="/dashboard/categories" className="bg-white border border-gray-200 p-8 rounded-2xl hover:shadow-md transition-all group">
           <h2 className="text-2xl font-bold mb-4 group-hover:text-primary">Manage Categories</h2>
           <p className="text-gray-600">Add new categories and upload icons.</p>
         </Link>

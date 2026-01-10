@@ -1,41 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import industriesData from '../data/products.json';
 import { useNavigate } from 'react-router-dom';
+import api from '../api';
 
 const ChemicalSolutionsSection = () => {
     const navigate = useNavigate();
+    const [products, setProducts] = useState([]);
     
-    // Specific products requested by the user
-    const targetChemicalNames = [
-        "Malic Acid", 
-        "Nitric Acid", 
-        "Glycolic Acid (AHA)", 
-        "Sorbitol", 
-        "Polyether Polyol (PPG)", 
-        "Propylene Glycol (PG) USP Grade", 
-        "Normal Hexane (n-Hexane)", 
-        "Methylene Chloride (MC)", 
-        "Special Boiling Point (SBP)"
-    ];
-
-    // Build unique list of chemicals and their associated industries
-    const featuredProducts = targetChemicalNames.map(targetName => {
-        const industries = [];
-        industriesData.forEach(industry => {
-            industry.categories.forEach(category => {
-                if (category.products.includes(targetName)) {
-                    if (!industries.includes(industry.name)) {
-                        industries.push(industry.name);
-                    }
-                }
-            });
-        });
-        return {
-            name: targetName,
-            industries: industries
+    React.useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const res = await api.get('/products');
+                // Sort by createdAt desc (newest first) and take top 9
+                // Assuming createdAt is available, if not rely on default order or _id
+                const sorted = res.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                setProducts(sorted.slice(0, 9));
+            } catch (err) {
+                console.error("Failed to fetch products for ChemicalSolutionsSection", err);
+            }
         };
-    });
+        fetchProducts();
+    }, []);
 
     return (
         <section className="bg-white font-primary">
@@ -75,9 +60,9 @@ const ChemicalSolutionsSection = () => {
                     }}
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full"
                 >
-                    {featuredProducts.map((product, index) => (
+                    {products.map((product, index) => (
                         <motion.div 
-                            key={index}
+                            key={product._id || index}
                             variants={{
                                 hidden: { opacity: 0, y: 20 },
                                 visible: { opacity: 1, y: 0 }
@@ -87,7 +72,14 @@ const ChemicalSolutionsSection = () => {
                             <div>
                                 <h3 className="font-bold text-[25px] mb-3">{product.name}</h3>
                                 <div className="flex flex-wrap gap-4">
-                                    {product.industries.map((ind, iIndex) => {
+                                    {/* Handle industry as single object (populated) or array if schema changed. Currently schema has single industry per product */}
+                                    {(() => {
+                                        // The current Product model has 'industry' as a single ObjectId reference.
+                                        // The original code handled multiple industries per product target name.
+                                        // We will visually display the single industry the product belongs to.
+                                        const indName = product.industry?.name;
+                                        if (!indName) return null;
+
                                         const industryColors = {
                                             "Food Ingredients": "#009F6F",
                                             "Flavor & Fragrance": "#026DD6",
@@ -95,17 +87,17 @@ const ChemicalSolutionsSection = () => {
                                             "Polyurethane Foam": "#E14640",
                                             "Cigarettes and Vape": "#333333"
                                         };
-                                        const color = industryColors[ind] || '#000000';
+                                        const color = industryColors[indName] || '#000000';
+                                        
                                         return (
                                             <span 
-                                                key={iIndex}
                                                 className="text-[16px] font-normal bg-[#D2D3CD]/25 px-4 py-2 rounded-full border"
                                                 style={{ color: color, borderColor: color }}
                                             >
-                                                {ind}
+                                                {indName}
                                             </span>
                                         );
-                                    })}
+                                    })()}
                                 </div>
                             </div>
                         </motion.div>

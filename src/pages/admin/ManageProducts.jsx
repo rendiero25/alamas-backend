@@ -10,6 +10,11 @@ const ManageProducts = () => {
   const [categories, setCategories] = useState([]); // Dynamic categories
   const [loading, setLoading] = useState(true);
   
+  // Pagination & Sorting State
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(20);
+  const [sortBy, setSortBy] = useState('newest');
+  
   // Form State
   const [isEditing, setIsEditing] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
@@ -131,24 +136,84 @@ const ManageProducts = () => {
     }
   };
 
+  // Sorting & Pagination Logic
+  const processedProducts = React.useMemo(() => {
+    let sorted = [...products];
+
+    // Sorting
+    if (sortBy === 'name-asc') {
+        sorted.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === 'name-desc') {
+        sorted.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (sortBy === 'newest') {
+        // Assuming there is a createdAt or updatedAt, otherwise rely on ID or default order if not available
+        // If createdAt exists:
+        if (sorted[0]?.createdAt) {
+             sorted.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        } else {
+             // Fallback to reverse order of fetching if no timestamps (often newest is last in DB)
+             // or simply reverse if standard append
+             // But usually mongo IDs have timestamp. For now let's hope createdAt works as confirmed in model.
+             sorted.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        }
+    } else if (sortBy === 'oldest') {
+        if (sorted[0]?.createdAt) {
+             sorted.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+        }
+    }
+
+    // Pagination
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = sorted.slice(indexOfFirstItem, indexOfLastItem);
+
+    return { currentItems, totalItems: sorted.length };
+  }, [products, sortBy, currentPage, itemsPerPage]);
+
+  const totalPages = Math.ceil(processedProducts.totalItems / itemsPerPage);
+
+  useEffect(() => {
+    if (currentPage > totalPages && totalPages > 0) {
+      setCurrentPage(totalPages);
+    }
+  }, [totalPages, currentPage]);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
-    <div className="container mx-auto px-10 py-10 font-primary">
-      <Link to="/admin" className="flex items-center gap-2 text-gray-600 mb-6 hover:text-black">
+    <div className="container mx-auto px-10 md:px-18 xl:px-19 2xl:px-19 pt-10 pb-[75px] font-primary">
+      <Link to="/dashboard" className="flex items-center gap-2 text-gray-600 mb-6 hover:text-black">
         <FaArrowLeft /> Back to Dashboard
       </Link>
       
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-wrap justify-between items-center mb-8 gap-7">
         <h1 className="text-3xl font-bold">Manage Products</h1>
-        <button 
-          onClick={() => {
-            setShowForm(true);
-            setIsEditing(false);
-            setFormData({ name: '', category: '', industry: '' });
-          }}
-          className="bg-primary text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-opacity-90"
-        >
-          <FaPlus /> Add Product
-        </button>
+
+        <div className="flex gap-5">
+            <select 
+                value={sortBy} 
+                onChange={(e) => setSortBy(e.target.value)}
+                className="border p-2 rounded-full px-4 cursor-pointer"
+            >
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+                <option value="name-asc">Name (A-Z)</option>
+                <option value="name-desc">Name (Z-A)</option>
+            </select>
+
+            <button
+              onClick={() => {
+                  setShowForm(true);
+                  setIsEditing(false);
+                  setFormData({ name: '', category: '', industry: '' });
+              }}
+              className="cursor-pointer bg-primary text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-opacity-90"
+              >
+              <FaPlus /> Add Product
+            </button>
+        </div>
       </div>
 
       {showForm && (
@@ -174,7 +239,7 @@ const ManageProducts = () => {
                 <select
                     value={formData.category}
                     onChange={e => setFormData({...formData, category: e.target.value})}
-                    className="border p-2 rounded w-full"
+                    className="cursor-pointer border p-2 rounded w-full"
                     required
                 >
                     <option value="">Select Category</option>
@@ -189,7 +254,7 @@ const ManageProducts = () => {
                 <select 
                     value={formData.industry}
                     onChange={e => setFormData({...formData, industry: e.target.value})}
-                    className="border p-2 rounded w-full"
+                    className="cursor-pointer border p-2 rounded w-full"
                     required
                 >
                     <option value="">Select Industry</option>
@@ -200,8 +265,8 @@ const ManageProducts = () => {
               </div>
 
               <div className="flex justify-end gap-2 mt-4">
-                <button type="button" onClick={() => setShowForm(false)} className="px-4 py-2 text-gray-600">Cancel</button>
-                <button type="submit" className="bg-primary text-white px-4 py-2 rounded">
+                <button type="button" onClick={() => setShowForm(false)} className="cursor-pointer px-4 py-2 text-gray-600">Cancel</button>
+                <button type="submit" className="cursor-pointer bg-primary text-white px-4 py-2 rounded">
                     {isEditing ? 'Update' : 'Create'}
                 </button>
               </div>
@@ -212,7 +277,7 @@ const ManageProducts = () => {
 
       {loading ? <p>Loading...</p> : (
         <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
+          <table className="w-full text-left border-collapse mb-8">
             <thead>
               <tr className="bg-gray-100">
                 <th className="p-4 rounded-tl-xl">Name</th>
@@ -222,19 +287,38 @@ const ManageProducts = () => {
               </tr>
             </thead>
             <tbody>
-              {products.map(product => (
+              {processedProducts.currentItems.map(product => (
                 <tr key={product._id} className="border-b hover:bg-gray-50">
                   <td className="p-4 font-medium">{product.name}</td>
                   <td className="p-4">{product.category}</td>
                   <td className="p-4">{product.industry?.name || '-'}</td>
-                  <td className="p-4 flex gap-3">
-                    <button onClick={() => handleEdit(product)} className="text-blue-600 hover:text-blue-800"><FaEdit /></button>
-                    <button onClick={() => handleDelete(product._id)} className="text-red-600 hover:text-red-800"><FaTrash /></button>
+                  <td className="p-4 flex gap-7">
+                    <button onClick={() => handleEdit(product)} className="cursor-pointer text-blue-600 hover:text-blue-800 flex items-center gap-2"><FaEdit /> Edit</button>
+                    <button onClick={() => handleDelete(product._id)} className="cursor-pointer text-red-600 hover:text-red-800 flex items-center gap-2"><FaTrash /> Delete</button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+          
+          {/* Pagination Controls */}
+          <div className="flex justify-center items-center gap-4">
+            <button 
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="px-4 py-2 border rounded disabled:opacity-50 cursor-pointer hover:bg-gray-100"
+            >
+                Previous
+            </button>
+            <span>Page {currentPage} of {totalPages}</span>
+            <button 
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="px-4 py-2 border rounded disabled:opacity-50 cursor-pointer hover:bg-gray-100"
+            >
+                Next
+            </button>
+          </div>
         </div>
       )}
     </div>

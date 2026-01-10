@@ -147,12 +147,12 @@ const ManageIndustries = () => {
   };
 
   return (
-    <div className="container mx-auto px-10 py-10 font-primary">
-      <Link to="/admin" className="flex items-center gap-2 text-gray-600 mb-6 hover:text-black">
+    <div className="container mx-auto px-10 md:px-18 xl:px-19 2xl:px-19 py-10 font-primary">
+      <Link to="/dashboard" className="flex items-center gap-2 text-gray-600 mb-6 hover:text-black">
         <FaArrowLeft /> Back to Dashboard
       </Link>
       
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-wrap justify-between items-center mb-8 gap-7">
         <h1 className="text-3xl font-bold">Manage Industries</h1>
         <button 
           onClick={() => {
@@ -249,8 +249,8 @@ const ManageIndustries = () => {
               <h3 className="text-xl font-bold mb-2">{industry.name}</h3>
               <p className="text-sm text-gray-500 mb-4 line-clamp-2">{industry.description || 'No description'}</p>
               <div className="flex gap-3 justify-end">
-                <button onClick={() => handleEdit(industry)} className="text-blue-600 hover:text-blue-800 flex items-center gap-1"><FaEdit /> Edit</button>
-                <button onClick={() => handleDelete(industry._id)} className="text-red-600 hover:text-red-800 flex items-center gap-1"><FaTrash /> Delete</button>
+                <button onClick={() => handleEdit(industry)} className="cursor-pointer text-blue-600 hover:text-blue-800 flex items-center gap-1"><FaEdit /> Edit</button>
+                <button onClick={() => handleDelete(industry._id)} className="cursor-pointer text-red-600 hover:text-red-800 flex items-center gap-1"><FaTrash /> Delete</button>
               </div>
             </div>
           ))}

@@ -15,6 +15,7 @@ import ManageCategories from "./pages/admin/ManageCategories";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ManageIndustries from "./pages/admin/ManageIndustries";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
     return (
@@ -33,12 +34,13 @@ const App = () => {
 
                 {/* Admin Routes (Protected) */}
                 <Route element={<ProtectedRoute />}>
-                    <Route path="/admin" element={<Dashboard />} />
-                    <Route path="/admin/dashboard" element={<Dashboard />} />
-                    <Route path="/admin/products" element={<ManageProducts />} />
-                    <Route path="/admin/industries" element={<ManageIndustries />} />
-                    <Route path="/admin/categories" element={<ManageCategories />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    {/* <Route path="/admin/dashboard" element={<Dashboard />} /> */}
+                    <Route path="/dashboard/products" element={<ManageProducts />} />
+                    <Route path="/dashboard/industries" element={<ManageIndustries />} />
+                    <Route path="/dashboard/categories" element={<ManageCategories />} />
                 </Route>
+                <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
         </Router> 

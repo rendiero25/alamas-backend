@@ -91,15 +91,15 @@ const ManageCategories = () => {
 
   return (
     <div className="container mx-auto px-10 py-10 font-primary">
-      <Link to="/admin" className="flex items-center gap-2 text-gray-600 mb-6 hover:text-black">
+      <Link to="/dashboard" className="flex items-center gap-2 text-gray-600 mb-6 hover:text-black">
         <FaArrowLeft /> Back to Dashboard
       </Link>
 
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-wrap justify-between items-center mb-8 gap-7">
         <h1 className="text-3xl font-bold">Manage Categories</h1>
         <button 
           onClick={() => setShowForm(true)}
-          className="bg-primary text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-opacity-90"
+          className="cursor-pointer bg-primary text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-opacity-90"
         >
           <FaPlus /> Add Category
         </button>
@@ -127,15 +127,15 @@ const ManageCategories = () => {
                 <input 
                   type="file" 
                   onChange={e => setNewCatIcon(e.target.files[0])}
-                  className="border p-2 rounded w-full"
+                  className="cursor-pointer border p-2 rounded w-full"
                   accept="image/*"
                   required
                 />
               </div>
 
               <div className="flex justify-end gap-2 mt-4">
-                <button type="button" onClick={() => setShowForm(false)} className="px-4 py-2 text-gray-600">Cancel</button>
-                <button type="submit" className="px-4 py-2 bg-primary text-white rounded">Save</button>
+                <button type="button" onClick={() => setShowForm(false)} className="cursor-pointer px-4 py-2 text-gray-600">Cancel</button>
+                <button type="submit" className="cursor-pointer px-4 py-2 bg-primary text-white rounded">Save</button>
               </div>
             </form>
           </div>
