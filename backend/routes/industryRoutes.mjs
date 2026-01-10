@@ -1,7 +1,7 @@
 import express from 'express';
-import Industry from '../models/Industry.js';
-import upload from '../middleware/uploadMiddleware.js';
-import { protect } from '../middleware/authMiddleware.js';
+import Industry from '../models/Industry.mjs';
+import upload from '../middleware/uploadMiddleware.mjs';
+import { protect } from '../middleware/authMiddleware.mjs';
 
 const router = express.Router();
 

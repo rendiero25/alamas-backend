@@ -3,10 +3,10 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
-import industryRoutes from './routes/industryRoutes.js';
-import productRoutes from './routes/productRoutes.js';
-import categoryRoutes from './routes/categoryRoutes.js';
-import authRoutes from './routes/authRoutes.js';
+import industryRoutes from './routes/industryRoutes.mjs';
+import productRoutes from './routes/productRoutes.mjs';
+import categoryRoutes from './routes/categoryRoutes.mjs';
+import authRoutes from './routes/authRoutes.mjs';
 
 import path from 'path';
 import { fileURLToPath } from 'url';
