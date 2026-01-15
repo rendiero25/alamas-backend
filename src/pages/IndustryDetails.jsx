@@ -102,7 +102,7 @@ const IndustryDetails = () => {
                                 initial={{ opacity: 0, x: -50 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 1 }}
-                                className="text-white text-5xl md:text-[40px] font-medium"
+                                className="text-white text-3xl md:text-[40px] font-medium"
                             >
                                 {industry.name}
                             </motion.h1>
@@ -120,13 +120,13 @@ const IndustryDetails = () => {
                 className="container mx-auto px-10 md:px-18 xl:px-19 2xl:px-19 flex flex-col md:flex-row justify-between items-end gap-12"
             >
                 <div className="md:w-1/2">
-                    <h2 className="text-[45px] sm:text-[50px] font-medium text-black leading-tight">
+                    <h2 className="text-[35px] sm:text-[50px] font-medium text-black leading-tight">
                         {industry.heading}
                     </h2>
                     
                 </div>
                 <div className="md:w-1/2 flex items-center">
-                    <p className="text-black text-[30px] font-normal leading-tight">
+                    <p className="text-black text-[25px] lg:text-[30px] font-normal leading-tight">
                         {industry.description}
                     </p>
                 </div>
@@ -143,7 +143,7 @@ const IndustryDetails = () => {
                     • Product List
                 </span>
 
-                <p className="text-black text-[25px] font-normal max-w-3xl">
+                <p className="text-black text-[20px] lg:text-[25px] font-normal max-w-3xl">
                     {industry.productListDescription}
                 </p>
             </motion.div>

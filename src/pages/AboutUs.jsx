@@ -95,28 +95,28 @@ const AboutUs = () => {
                 className="container mx-auto px-10 md:px-18 xl:px-19 2xl:px-19 flex flex-col justify-center items-center text-center gap-12"
             >
                 <span className="text-black text-[25px] font-normal">• Our Story</span>
-                <h2 className="text-4xl md:text-[50px] font-bold text-black leading-tight">
+                <h2 className="text-2xl md:text-[50px] font-bold text-black leading-tight">
                     Shaping the future through <span className="text-primary font-bold">innovation and expertise</span>
                 </h2>
 
-                <div className="flex flex-row flex-wrap justify-center items-center md:items-start gap-16 2xl:mt-16 w-full">
+                <div className="flex flex-col lg:flex-row justify-center items-center md:items-start gap-16 2xl:mt-16 w-full">
                     {stats.map((stat, index) => (
                         <motion.div 
                             key={index} 
                             variants={itemVariants}
                             className="flex flex-col flex-1"
                         >
-                            <span className="text-[100px] font-medium text-black mb-2">
+                            <span className="text-[70px] xl:text-[80px] 2xl:text-[85px] font-medium text-black mb-2">
                                 {stat.value}
                             </span>
-                            <span className="text-black text-[30px] font-medium w-full">
+                            <span className="text-black text-[25px] font-medium w-full">
                                 {stat.label}
                             </span>
                         </motion.div>
                     ))}
                 </div>
 
-                <div className="max-w-7xl mx-auto space-y-8 text-[25px] font-normal italic leading-relaxed text-black">
+                <div className="max-w-7xl mx-auto space-y-8 text-2xl lg:text-[25px] font-normal italic leading-relaxed text-black">
                     <p>
                         Founded in 2023, PT Alamas Niaga Gemilang which headquartered in North Jakarta, 
                         began as a specialized chemical solutions provider for the polyurethane foam manufacturing industry. 
