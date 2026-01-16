@@ -25,6 +25,7 @@ const IndustryList = () => {
     const getImageUrl = (imagePath) => {
         if (!imagePath) return '';
         if (imagePath.startsWith('http')) return imagePath;
+        if (imagePath.startsWith('data:')) return imagePath; // Base64 data URI
         return `${BACKEND_URL}${imagePath}`;
     };
 
@@ -54,9 +55,9 @@ const IndustryList = () => {
                         className="relative w-full h-[720px] sm:h-[500px] md:h-[550px] lg:h-[500px] 2xl:h-[520px] group rounded-2xl"
                     >
                         {/* Background Image */}
-                        <img 
-                            src={getImageUrl(item.image)} 
-                            alt={item.name} 
+                        <img
+                            src={getImageUrl(item.image)}
+                            alt={item.name}
                             className="rounded-2xl absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                         />
                         

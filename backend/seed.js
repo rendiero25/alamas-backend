@@ -3,8 +3,8 @@ import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import Industry from './models/Industry.js';
-import Product from './models/Product.js';
+import Industry from './models/Industry.mjs';
+import Product from './models/Product.mjs';
 
 dotenv.config();
 

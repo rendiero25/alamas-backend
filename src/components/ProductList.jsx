@@ -139,7 +139,7 @@ const ProductList = () => {
     return (
         <section className="font-primary mb-[75px]">
             <div className="container mx-auto px-10 md:px-18 xl:px-19 2xl:px-19">
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -158,9 +158,9 @@ const ProductList = () => {
                 {/* Search and Filters */}
                 <div className="flex flex-col lg:flex-row gap-5 xl:gap-4 mb-12">
                     <div className="flex-1 relative">
-                        <input 
-                            type="text" 
-                            placeholder="Search" 
+                        <input
+                            type="text"
+                            placeholder="Search"
                             className="w-full border border-gray-300 rounded-full py-3 px-6 focus:outline-none focus:border-primary"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
@@ -170,7 +170,7 @@ const ProductList = () => {
                     
                     <div className="relative">
                         <select 
-                            className="w-full border border-gray-300 rounded-full py-3 pl-6 pr-12 focus:outline-none focus:border-primary appearance-none bg-white min-w-[200px]"
+                            className="cursor-pointer w-full border border-gray-300 rounded-full py-3 pl-6 pr-12 focus:outline-none focus:border-primary appearance-none bg-white min-w-[200px]"
                             value={selectedCategory}
                             onChange={(e) => setSelectedCategory(e.target.value)}
                         >
@@ -184,7 +184,7 @@ const ProductList = () => {
 
                     <div className="relative">
                         <select 
-                            className="w-full border border-gray-300 rounded-full py-3 pl-6 pr-12 focus:outline-none focus:border-primary appearance-none bg-white min-w-[200px]"
+                            className="cursor-pointer w-full border border-gray-300 rounded-full py-3 pl-6 pr-12 focus:outline-none focus:border-primary appearance-none bg-white min-w-[200px]"
                             value={selectedIndustry}
                             onChange={(e) => setSelectedIndustry(e.target.value)}
                         >
@@ -234,7 +234,7 @@ const ProductList = () => {
                                         }}
                                         className="border border-black/25 p-6 rounded-2xl flex flex-col justify-between hover:shadow-lg transition-all bg-white group hover:-translate-y-1"
                                     >
-                                        <div>
+                                        <div className='flex flex-col justify-between h-full'>
                                             <h4 className="font-bold text-[20px] mb-4 h-12 overflow-hidden leading-tight group-hover:text-primary">
                                                 {product.name}
                                             </h4>

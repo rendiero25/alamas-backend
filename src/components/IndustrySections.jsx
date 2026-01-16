@@ -18,14 +18,25 @@ const IndustrySections = () => {
                 const sorted = res.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
                 
                 // Map API data to component structure
-                const mapped = sorted.slice(0, 3).map(ind => ({
-                    category: ind.name,
-                    title: ind.heading,
-                    desc: ind.description,
-                    bg: ind.image ? `${BACKEND_URL}${ind.image}` : null, // Handle image path
-                    cardBg: 'bg-black/25 backdrop-blur-2xl',
-                    slug: getSlug(ind.name)
-                }));
+                const mapped = sorted.slice(0, 3).map(ind => {
+                    // Handle different image formats: Base64, absolute URL, or relative path
+                    let bgImage = null;
+                    if (ind.image) {
+                        if (ind.image.startsWith('data:') || ind.image.startsWith('http')) {
+                            bgImage = ind.image;
+                        } else {
+                            bgImage = `${BACKEND_URL}${ind.image}`;
+                        }
+                    }
+                    return {
+                        category: ind.name,
+                        title: ind.heading,
+                        desc: ind.description,
+                        bg: bgImage,
+                        cardBg: 'bg-black/25 backdrop-blur-2xl',
+                        slug: getSlug(ind.name)
+                    };
+                });
                 setIndustries(mapped);
             } catch (err) {
                 console.error("Failed to fetch industries", err);

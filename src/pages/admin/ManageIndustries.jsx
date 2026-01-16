@@ -161,7 +161,7 @@ const ManageIndustries = () => {
             setFormData({ name: '', description: '', image: '', heading: '', productListDescription: '' });
             setImageFile(null);
           }}
-          className="bg-primary text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-opacity-90"
+          className="cursor-pointer bg-primary text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-opacity-90"
         >
           <FaPlus /> Add Industry
         </button>
@@ -207,7 +207,7 @@ const ManageIndustries = () => {
                   <input 
                     type="file" 
                     onChange={e => setImageFile(e.target.files[0])}
-                    className="border p-2 rounded w-full"
+                    className="cursor-pointer border p-2 rounded w-full"
                     accept="image/*"
                   />
                   <p className="text-xs text-gray-500 mt-1">Upload an image or it will use the existing URL.</p>
@@ -234,8 +234,8 @@ const ManageIndustries = () => {
               </div>
 
               <div className="flex justify-end gap-2 mt-4">
-                <button type="button" onClick={() => setShowForm(false)} className="px-4 py-2 text-gray-600">Cancel</button>
-                <button type="submit" className="px-4 py-2 bg-primary text-white rounded">Save</button>
+                <button type="button" onClick={() => setShowForm(false)} className="cursor-pointer px-4 py-2 text-gray-600">Cancel</button>
+                <button type="submit" className="cursor-pointer px-4 py-2 bg-primary text-white rounded">Save</button>
               </div>
             </form>
           </div>

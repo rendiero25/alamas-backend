@@ -192,8 +192,8 @@ const ManageProducts = () => {
         <h1 className="text-3xl font-bold">Manage Products</h1>
 
         <div className="flex gap-5">
-            <select 
-                value={sortBy} 
+            <select
+                value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
                 className="border p-2 rounded-full px-4 cursor-pointer"
             >
@@ -202,7 +202,7 @@ const ManageProducts = () => {
                 <option value="name-asc">Name (A-Z)</option>
                 <option value="name-desc">Name (Z-A)</option>
             </select>
-
+            
             <button
               onClick={() => {
                   setShowForm(true);

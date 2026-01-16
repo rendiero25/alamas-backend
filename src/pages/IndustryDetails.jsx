@@ -25,6 +25,7 @@ const IndustryDetails = () => {
     const getImageUrl = (imagePath) => {
         if (!imagePath) return '';
         if (imagePath.startsWith('http')) return imagePath;
+        if (imagePath.startsWith('data:')) return imagePath; // Base64 data URI
         return `${BACKEND_URL}${imagePath}`;
     };
 

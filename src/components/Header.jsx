@@ -39,13 +39,13 @@ const Header = () => {
                 <div className="flex items-center gap-2">
                     {/* Placeholder for Logo Icon - stylized 'A' */}
                     <button onClick={() => navigate('/')} className='cursor-pointer'>
-                        <img src={Logo} alt="logoalamas" className='w-95 md:w-75 xl:w-80 2xl:w-75'/>
+                        <img src={Logo} alt="logoalamas" className='w-95 md:w-75'/>
                     </button>
                 </div>
 
                 {/* Navigation Links - Hidden on mobile, visible on lg */}
-                <div className='flex w-full items-center pl-15'>
-                    <nav className="hidden xl:flex items-center gap-6">
+                <div className='flex w-full items-center pl-10 2xl:pl-15'>
+                    <nav className="hidden xl:flex items-center gap-2 2xl:gap-6">
                         {navigation.map((item) => {
                             return (
                                 <Link 
@@ -63,7 +63,7 @@ const Header = () => {
                 
 
                 {/* Right Action Section */}
-                <div className="hidden xl:flex items-center gap-6 flex flex-row justify-between gap-20">
+                <div className="hidden xl:flex items-center gap-14 flex flex-row justify-between">
                     
                     {/* WhatsApp Contact */}
                     <div className="flex items-center gap-3 hover:scale-110">
