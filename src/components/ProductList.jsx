@@ -81,55 +81,74 @@ const ProductList = () => {
         return <FaFlask className='text-black text-2xl'/>; // Default fallback
     };
     
-    // Extract all unique categories and industries for dropdowns
-    const allIndustries = useMemo(() => ['All', ...productsData.map(i => i.name)], [productsData]);
+    // Extract all unique categories and industries for dropdowns (without 'All')
+    const allIndustries = useMemo(() => productsData.map(i => i.name), [productsData]);
     const allCategories = useMemo(() => {
         const cats = new Set();
         productsData.forEach(ind => {
             ind.categories.forEach(cat => cats.add(cat.name));
         });
-        return ['All', ...Array.from(cats)];
+        return Array.from(cats);
     }, [productsData]);
 
     // Filter and group products
     const filteredGroupedProducts = useMemo(() => {
         const grouped = {};
-
-        productsData.forEach(industry => {
-            if (selectedIndustry !== 'All' && industry.name !== selectedIndustry) return;
-
-            industry.categories.forEach(category => {
-                if (selectedCategory !== 'All' && category.name !== selectedCategory) return;
-
-                if (!grouped[category.name]) {
-                    grouped[category.name] = [];
+        
+        // Iterate through all industries 
+        for (const industry of productsData) {
+            // Skip this industry if filter is applied and doesn't match
+            if (selectedIndustry !== 'All' && industry.name !== selectedIndustry) {
+                continue;
+            }
+            
+            // Iterate through all categories in this industry
+            for (const category of industry.categories) {
+                // Skip this category if filter is applied and doesn't match
+                if (selectedCategory !== 'All' && category.name !== selectedCategory) {
+                    continue;
                 }
-
-                category.products.forEach(productName => {
-                    if (searchTerm && !productName.toLowerCase().includes(searchTerm.toLowerCase())) return;
+                
+                // Iterate through all products in this category
+                for (const productName of category.products) {
+                    // Skip if search term doesn't match
+                    if (searchTerm && !productName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        continue;
+                    }
                     
-                    // Avoid duplicates if a product is in multiple industries
-                    if (!grouped[category.name].some(p => p.name === productName)) {
+                    // Initialize category in grouped if needed
+                    if (!grouped[category.name]) {
+                        grouped[category.name] = [];
+                    }
+                    
+                    // Check if product already exists in this category
+                    const existingProduct = grouped[category.name].find(p => p.name === productName);
+                    
+                    if (existingProduct) {
+                        // Product exists, add this industry to its list
+                        if (!existingProduct.industries.includes(industry.name)) {
+                            existingProduct.industries.push(industry.name);
+                        }
+                    } else {
+                        // New product
                         grouped[category.name].push({
                             name: productName,
                             industries: [industry.name]
                         });
-                    } else {
-                        const existing = grouped[category.name].find(p => p.name === productName);
-                        if (!existing.industries.includes(industry.name)) {
-                            existing.industries.push(industry.name);
-                        }
                     }
-                });
-            });
-        });
-
-        // Remove empty categories
-        Object.keys(grouped).forEach(key => {
-            if (grouped[key].length === 0) delete grouped[key];
-        });
-
-        return grouped;
+                }
+            }
+        }
+        
+        // Filter out empty categories
+        const result = {};
+        for (const categoryName of Object.keys(grouped)) {
+            if (grouped[categoryName].length > 0) {
+                result[categoryName] = grouped[categoryName];
+            }
+        }
+        
+        return result;
     }, [searchTerm, selectedCategory, selectedIndustry, productsData]);
 
     if (loading) {
@@ -174,8 +193,8 @@ const ProductList = () => {
                             value={selectedCategory}
                             onChange={(e) => setSelectedCategory(e.target.value)}
                         >
-                            <option value="All">Category</option>
-                            {allCategories.filter(c => c !== 'All').map(c => (
+                            <option value="All">All Categories</option>
+                            {allCategories.map(c => (
                                 <option key={c} value={c}>{c}</option>
                             ))}
                         </select>
@@ -188,8 +207,8 @@ const ProductList = () => {
                             value={selectedIndustry}
                             onChange={(e) => setSelectedIndustry(e.target.value)}
                         >
-                            <option value="All">Industry</option>
-                            {allIndustries.filter(i => i !== 'All').map(i => (
+                            <option value="All">All Industries</option>
+                            {allIndustries.map(i => (
                                 <option key={i} value={i}>{i}</option>
                             ))}
                         </select>
@@ -212,8 +231,7 @@ const ProductList = () => {
                             
                             <motion.div 
                                 initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true, margin: "-50px" }}
+                                animate="visible"
                                 variants={{
                                     hidden: { opacity: 0 },
                                     visible: {
@@ -225,17 +243,16 @@ const ProductList = () => {
                                 }}
                                 className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
                             >
-                                {products.map((product, idx) => (
+                                {products.map((product) => (
                                     <motion.div 
-                                        key={idx}
-                                        variants={{
-                                            hidden: { opacity: 0, y: 20 },
-                                            visible: { opacity: 1, y: 0 }
-                                        }}
+                                        key={product.name}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.3 }}
                                         className="border border-black/25 p-6 rounded-2xl flex flex-col justify-between hover:shadow-lg transition-all bg-white group hover:-translate-y-1"
                                     >
                                         <div className='flex flex-col justify-between h-full'>
-                                            <h4 className="font-bold text-[20px] mb-4 h-12 overflow-hidden leading-tight group-hover:text-primary">
+                                            <h4 className="font-bold text-[20px] mb-4 leading-tight group-hover:text-primary">
                                                 {product.name}
                                             </h4>
 
